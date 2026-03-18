@@ -13,12 +13,15 @@
 
 <style>
 
+
 .header{
 display:flex;
-align-items:center;
-gap:15px;
+flex-direction:column; /* 👈 ESSENCIAL */
+align-items:flex-start;
+gap:5px;
 margin-bottom:20px;
 }
+
 
 .header img{
 width:70px;
@@ -171,11 +174,46 @@ max-height:440px;
 overflow-y:auto;
 border-radius:10px;
 }
+
+
 .logo{
 width:250px;
 display:block;
 margin:0 auto 15px auto;
 }
+
+
+.subtitulo{
+font-size:22px;
+color:#555; /* 👈 cinza */
+letter-spacing:1px;
+margin:0;
+}
+
+
+.header{
+display:flex;
+flex-direction:column;
+gap:5px;
+margin-bottom:20px;
+}
+
+.linha-titulo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.header h1{
+margin:0;
+}
+
+.subtitulo{
+font-size:26px;
+color:#555;
+letter-spacing:1px;
+}
+
 
 </style>
 </head>
@@ -209,11 +247,20 @@ margin:0 auto 15px auto;
 
 </div>
 
+
+
 <div class="main">
 <div class="header">
+<span class="subtitulo">Núcleo de Economia Industrial</span>
+
+<div class="linha-titulo">
+
+<h1>ANUÁRIO OUROLÂNDIA - BA</h1>
+
 <!--img src="bandeira.png" !-->
 <img src="data:image/png;base64,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">
-<h1>Ourolândia – Bahia</h1>
+
+</div>
 </div>
 
 
@@ -306,12 +353,14 @@ margin:0 auto 15px auto;
 
 <h3>Pirâmide etária – Censo 2022</h3>
 <canvas id="piramide"></canvas>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="chart">
 <h3>Crescimento populacional</h3>
 
 <canvas id="popHistorico"></canvas>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 </div>
 
@@ -326,19 +375,23 @@ margin:0 auto 15px auto;
 <div class="card">
 <b>PIB <span class="ano"> (2023)</span></b>
 <p>R$ 318.032.238</p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 <div class="card">
 <b>Participação no PIB de Ourolândia na Bahia<span class="ano"> (2023)</span></b>
-<p>0,074% no PIB Bahia</p>
+<p>0,07% no PIB Bahia</p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>PIB per capita <span class="ano"> (2023)</span></b>
 <p>R$ 16.527</p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 <div class="card">
 <b>PIB <span class="ano"> (2021)</span></b>
 <p>R$ 279.796.000 </p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 
 </div>
@@ -347,6 +400,7 @@ margin:0 auto 15px auto;
 <div class="card">
 <b>Transferências externas</b>
 <p>73,58%</p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 
 </div>
@@ -498,7 +552,7 @@ margin:0 auto 15px auto;
 
 </div>
 
-<div class="chart">
+<!--div class="chart">
 
 <h3>Setores com maior geração de emprego formal</h3>
 
@@ -506,8 +560,31 @@ margin:0 auto 15px auto;
 
 <span class="ano">Fonte: RAIS</span>
 
+</div!-->
+
+
 </div>
 
+<div class="chart">
+
+<h3>Ranking comparativo na Bahia</h3>
+
+<div class="tabela-scroll">
+<table id="tabelaEmprego">
+
+<thead>
+<tr>
+<th>Setor</th>
+<th>Empregos</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+</div>
+
+<span class="ano">Fonte: RAIS</span>
 
 </div>
 
@@ -12297,7 +12374,7 @@ margin:0 auto 15px auto;
 ]
 </script>
 
-/*   aqui */
+
 <script id="dadosEmprego" type="application/json">
 [
 {"setor":"Administração pública","empregos":578},
@@ -12817,6 +12894,8 @@ plugins:[ChartDataLabels]
 /*aqui2*/
 /* EMPREGO POR SETOR */
 
+/* TABELA EMPREGO POR SETOR */
+
 const dadosEmprego = JSON.parse(
 document.getElementById("dadosEmprego").textContent
 );
@@ -12825,67 +12904,19 @@ document.getElementById("dadosEmprego").textContent
 
 dadosEmprego.sort((a,b)=>b.empregos - a.empregos);
 
-new Chart(document.getElementById("empregoSetores"),{
+let tbodyEmprego = document.querySelector("#tabelaEmprego tbody");
 
-type:'bar',
+dadosEmprego.forEach(d=>{
 
-data:{
-
-labels: dadosEmprego.map(d=>d.setor),
-
-datasets:[{
-data: dadosEmprego.map(d=>d.empregos),
-backgroundColor:"#0a4ea3"
-}]
-
-},
-
-options:{
-
-plugins:{
-
-legend:{display:false},
-
-tooltip:{
-callbacks:{
-label:(context)=> context.raw + " empregos"
-}
-},
-
-datalabels:{
-
-anchor:"end",
-align:"top",
-
-color:"#000",
-
-font:{
-weight:"bold"
-},
-
-formatter:(value)=> value
-
-}
-
-},
-
-scales:{
-
-y:{
-grid:{display:false}
-},
-
-x:{
-grid:{display:false}
-}
-
-}
-
-},
-
-plugins:[ChartDataLabels]
+tbodyEmprego.innerHTML+=`
+<tr>
+<td>${d.setor}</td>
+<td>${d.empregos}</td>
+</tr>
+`
 
 });
+
 
 
 
