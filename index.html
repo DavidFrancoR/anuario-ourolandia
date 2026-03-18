@@ -12777,16 +12777,19 @@ legend:{display:false},
 
 datalabels:{
 anchor:"end",
-align:"top",
+align:"end",
 color:"#000",
 
 font:{
 weight:"bold"
 },
-
-formatter:(value)=>{
+/*formatter:(value)=>{
 return "R$ " + value
+}*/
+formatter:(value)=>{
+return "R$ "+value.toLocaleString("pt-BR")
 }
+
 
 }
 
