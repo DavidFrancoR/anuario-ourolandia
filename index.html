@@ -241,6 +241,7 @@ margin:0 auto 15px auto;
 <div class="card">
 <b>Área territorial</b>
 <p>1.544,988 km²</p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
@@ -325,6 +326,10 @@ margin:0 auto 15px auto;
 <div class="card">
 <b>PIB <span class="ano"> (2023)</span></b>
 <p>R$ 318.032.238</p>
+</div>
+<div class="card">
+<b>Participação no PIB de Ourolândia na Bahia<span class="ano"> (2023)</span></b>
+<p>0,074% no PIB Bahia</p>
 </div>
 
 <div class="card">
@@ -493,6 +498,17 @@ margin:0 auto 15px auto;
 
 </div>
 
+<div class="chart">
+
+<h3>Setores com maior geração de emprego formal</h3>
+
+<canvas id="empregoSetores"></canvas>
+
+<span class="ano">Fonte: RAIS</span>
+
+</div>
+
+
 </div>
 
 <div id="educacao" class="section">
@@ -514,13 +530,13 @@ margin:0 auto 15px auto;
 </div>
 
 <div class="card">
-<b>Quantidade de Universidade <span class="ano"> (2024) Fonte: Censo da educação superior</span></b>
+<b>Quantidade de Universidade <span class="ano"> (2024)</span></b>
 <p>0</p>
 <span class="ano">Fonte: INEP</span></b>
 </div>
 
 <div class="card">
-<b>Quantidade de cursos técnicos <span class="ano"> (2024) Fonte: Censo da educação básica</span></b>
+<b>Quantidade de cursos técnicos <span class="ano"> (2024)</span></b>
 <p>0</p>
 <span class="ano">Fonte: INEP</span></b>
 </div>
@@ -699,11 +715,13 @@ margin:0 auto 15px auto;
 <div class="card">
 <b>Área municipal</b>
 <p>1.544,988 km²</p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>Ranking territorial Bahia</b>
 <p>101º maior município</p>
+<span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <!--div class="card">
@@ -12270,12 +12288,28 @@ margin:0 auto 15px auto;
 
 <script id="dadosSalarios" type="application/json">
 [
+{"cnae":"Administração pública","salario":3900},
+{"cnae":"Construção","salario":3000},
 {"cnae":"Mineração","salario":2700},
 {"cnae":"Indústria","salario":2400},
-{"cnae":"Construção","salario":3000},
-{"cnae":"Comércio","salario":1600},
 {"cnae":"Serviços","salario":1800},
-{"cnae":"Administração pública","salario":3900}
+{"cnae":"Comércio","salario":1600}
+]
+</script>
+
+/*   aqui */
+<script id="dadosEmprego" type="application/json">
+[
+{"setor":"Administração pública","empregos":578},
+{"setor":"Indústria (minerais não metálicos)","empregos":269},
+{"setor":"Comércio varejista","empregos":255},
+{"setor":"Serviços administrativos","empregos":160},
+{"setor":"Construção de infraestrutura","empregos":121},
+{"setor":"Comércio atacadista","empregos":25},
+{"setor":"Alimentação","empregos":22},
+{"setor":"Educação","empregos":15},
+{"setor":"Serviços especializados construção","empregos":14},
+{"setor":"Indústria elétrica","empregos":13}
 ]
 </script>
 
@@ -12774,6 +12808,81 @@ grid:{display:false}
 plugins:[ChartDataLabels]
 
 });
+
+
+/*aqui2*/
+/* EMPREGO POR SETOR */
+
+const dadosEmprego = JSON.parse(
+document.getElementById("dadosEmprego").textContent
+);
+
+/* ordenar do maior para o menor */
+
+dadosEmprego.sort((a,b)=>b.empregos - a.empregos);
+
+new Chart(document.getElementById("empregoSetores"),{
+
+type:'bar',
+
+data:{
+
+labels: dadosEmprego.map(d=>d.setor),
+
+datasets:[{
+data: dadosEmprego.map(d=>d.empregos),
+backgroundColor:"#0a4ea3"
+}]
+
+},
+
+options:{
+
+plugins:{
+
+legend:{display:false},
+
+tooltip:{
+callbacks:{
+label:(context)=> context.raw + " empregos"
+}
+},
+
+datalabels:{
+
+anchor:"end",
+align:"top",
+
+color:"#000",
+
+font:{
+weight:"bold"
+},
+
+formatter:(value)=> value
+
+}
+
+},
+
+scales:{
+
+y:{
+grid:{display:false}
+},
+
+x:{
+grid:{display:false}
+}
+
+}
+
+},
+
+plugins:[ChartDataLabels]
+
+});
+
 
 
 /* gráfico homens x mulheres */
