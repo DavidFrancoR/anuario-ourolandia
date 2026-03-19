@@ -302,6 +302,18 @@ text-align:left;
 font-weight:500;
 }
 
+.linha-filtro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-box {
+  font-weight: 600;
+  background: #eef2fb;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
 
 </style>
 </head>
@@ -331,15 +343,15 @@ font-weight:500;
 <a href="#populacao">População</a>
 <!--a href="#historico">Histórico</a !-->
 <a href="#economia">Economia</a>
-<a href="#panorama">Panorama Setorial</a>
+<a href="#panoramaSetorial">Panorama Setorial</a>
 <a href="#financiamento">Financiamento</a>
 <a href="#trabalho">Mercado de Trabalho</a>
 <a href="#educacao">Educação</a>
 <a href="#saude">Saúde</a>
 <a href="#ambiente">Meio Ambiente</a>
 <a href="#territorio">Território</a>
-<a href="#ranking">Ranking Bahia</a>
 <a href="#osc">Organização da Sociedade Civil</a>
+<a href="#ranking">Ranking Bahia</a>
 <hr class="linha-menu">
 
 </div>
@@ -476,25 +488,19 @@ font-weight:500;
 <p>R$ 318.032.238</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
-<div class="card">
-<b>Participação no PIB de Ourolândia na Bahia<span class="ano"> (2023)</span></b>
-<p>0,07% no PIB Bahia</p>
-<span class="ano">Fonte: IBGE</span></b>
-</div>
 
 <div class="card">
 <b>PIB per capita <span class="ano"> (2023)</span></b>
 <p>R$ 16.527</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
-<!-- div class="card">
-<b>PIB <span class="ano"> (2021)</span></b>
-<p>R$ 279.796.000 </p>
+
+<div class="card">
+<b>Participação no PIB de Ourolândia na Bahia<span class="ano"> (2023)</span></b>
+<p>0,07% no PIB Bahia</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
-</div>
-<div class="cards" !-->
 
 <div class="card">
 <b>Transferências externas</b>
@@ -576,14 +582,77 @@ font-weight:500;
 </div>
 
 
+<div class="chart bloco-tabela">
 
+<h3>Produção <span class="ano"> (2024)</span></b></h3>
+
+<div class="filters linha-filtro">
+  
+  <select id="filtroLavoura">
+    <option value="todos">Todos</option>
+    <option value="Lavoura Temporária">Lavoura Temporária</option>
+    <option value="Lavoura Permanente">Lavoura Permanente</option>
+    <option value="Produção de Origem Animal">Produção de Origem Animal</option>
+  </select>
+
+  <div id="totalLavoura" class="total-box"></div>
+
+</div>
+
+<div class="tabela-scroll">
+<table id="tabelaLavoura">
+<thead>
+<tr>
+<th>Tipo de Lavoura</th>
+<th>Produto</th>
+<th>Valor da Produção</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+<p id="totalLavoura"></p>
+  <span class="ano">Fonte: PAM e PPM - </span></b>
+  <span class="ano">Valores deflacionados a fev/2026 (IPCA)</span></b>
+
+</div>
+
+<div class="chart bloco-tabela">
+
+<h3>Exportações por Ano</h3>
+
+<div class="filters linha-filtro">
+  
+  <select id="filtroAno">
+    <option value="todos">Todos</option>
+  </select>
+
+  <div id="totalExportacao" class="total-box"></div>
+
+</div>
+
+<div class="tabela-scroll">
+<table id="tabelaExportacao">
+<thead>
+<tr>
+<th>Ano</th>
+<th>Descrição</th>
+<th>Valor (US$ FOB)</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+</div>
 </div>
 
 
 <div id="financiamento" class="section">
 
 <h2>Financiamento</h2>
-<h2>Fundo Constitucional de Financiamento do Nordeste FNE</h2>
+<h3>Fundo Constitucional de Financiamento do Nordeste FNE</h3>
 
 <div class="cards">
 
@@ -621,7 +690,7 @@ font-weight:500;
 <thead>
 <tr>
 <th>Setor</th>
-<th>Contratações FNE (2025)</th>
+<th>Contratações FNE  <span class="ano"> (2025)</span></b></h3></th>
 </tr>
 </thead>
 <tbody></tbody>
@@ -632,7 +701,7 @@ font-weight:500;
 
 </div>
 
-<h2>Emendas Parlamentares Individuais</h2>
+<h3>Emendas Parlamentares Individuais</h3>
 <div class="cards">
 
 <div class="card">
@@ -651,7 +720,7 @@ font-weight:500;
 
 </div>
 
-<h2>BNDES</h2>
+<h3>BNDES</h3>
 <div class="cards">
 
 <div class="card">
@@ -785,7 +854,7 @@ font-weight:500;
 
 <div class="chart">
 
-<h3>Ranking comparativo na Bahia</h3>
+<h3>Resumo por Atividade</h3>
 
 <div class="tabela-scroll">
 <table id="tabelaEmprego">
@@ -901,19 +970,19 @@ font-weight:500;
 <div class="card">
 <b>Esgotamento sanitário<span class="ano"> (2022)</span></b>
 <p>19,1%</p>
-<span class="ano">Fonte: IBGE</span></b>
+<span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Arborização urbana<span class="ano"> (2022)</span></b>
 <p>67,6%</p>
-<span class="ano">Fonte: IBGE</span></b>
+<span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Urbanização adequada<span class="ano"> (2022)</span></b>
 <p>0%</p>
-<span class="ano">Fonte: IBGE</span></b>
+<span class="ano">Fonte: SNIS</span>
 </div>
 
 
@@ -1034,29 +1103,6 @@ font-weight:500;
 </div>
 
 
-<div id="ranking" class="section">
-
-<h2>Ranking comparativo na Bahia</h2>
-
-<table>
-
-<tr>
-<th>Indicador</th>
-<th>Posição</th>
-</tr>
-
-<tr><td>População</td><td>166º</td></tr>
-<tr><td>Densidade demográfica</td><td>311º</td></tr>
-<tr><td>PIB per capita</td><td>175º</td></tr>
-<tr><td>Receita municipal</td><td>144º</td></tr>
-<tr><td>Mortalidade infantil</td><td>201º</td></tr>
-<tr><td>Escolarização</td><td>384º</td></tr>
-<tr><td>IFDM 2025 </td><td>216º</td></tr>
-
-</table>
-
-</div>
-
 <div id="osc" class="section">
 <h2>Organização da Sociedade Civil</h2>
 <div class="cards">
@@ -1107,6 +1153,30 @@ font-weight:500;
 </div>
 
 </div>
+
+</div>
+
+
+<div id="ranking" class="section">
+
+<h2>Ranking comparativo na Bahia</h2>
+
+<table>
+
+<tr>
+<th>Indicador</th>
+<th>Posição</th>
+</tr>
+
+<tr><td>População</td><td>166º</td></tr>
+<tr><td>Densidade demográfica</td><td>311º</td></tr>
+<tr><td>PIB per capita</td><td>175º</td></tr>
+<tr><td>Receita municipal</td><td>144º</td></tr>
+<tr><td>Mortalidade infantil</td><td>201º</td></tr>
+<tr><td>Escolarização</td><td>384º</td></tr>
+<tr><td>IFDM 2025 </td><td>216º</td></tr>
+
+</table>
 
 </div>
 
@@ -12816,6 +12886,129 @@ const mulheres = [
 4.06,3.63,4.04,4.21,3.92,4.27,3.66
 ];
 
+const dadosLavoura = [
+  { tipo: "Lavoura Temporária", produto: "Tomate", valor: 6497138 },
+  { tipo: "Lavoura Permanente", produto: "Sisal ou agave (fibra)", valor: 4291112.92 },
+  { tipo: "Lavoura Temporária", produto: "Mamona (baga)", valor: 2066731.28 },
+  { tipo: "Produção de Origem Animal (2022)", produto: "Leite", valor: 1827682.04 },
+  { tipo: "Lavoura Temporária", produto: "Feijão (em grão)", valor: 805528.49 },
+  { tipo: "Produção de Origem Animal (2022)", produto: "Ovos de galinha", valor: 458378.46 },
+  { tipo: "Lavoura Temporária", produto: "Melancia", valor: 435158.15 },
+  { tipo: "Lavoura Temporária", produto: "Milho (em grão)", valor: 418961.2 },
+  { tipo: "Lavoura Permanente", produto: "Banana (cacho)", valor: 15117.16 },
+  { tipo: "Produção de Origem Animal (2022)", produto: "Mel de abelha", valor: 13996.29 }
+];
+
+function renderTabelaLavoura(filtro = "todos") {
+
+  const tbody = document.querySelector("#tabelaLavoura tbody");
+  tbody.innerHTML = "";
+
+  let dadosFiltrados = dadosLavoura;
+
+  if (filtro !== "todos") {
+    dadosFiltrados = dadosLavoura.filter(d => d.tipo === filtro);
+  }
+
+  // ordena do maior para menor
+  dadosFiltrados.sort((a, b) => b.valor - a.valor);
+
+  let total = 0;
+
+  dadosFiltrados.forEach(d => {
+    total += d.valor;
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${d.tipo}</td>
+      <td>${d.produto}</td>
+      <td>R$ ${d.valor.toLocaleString('pt-BR')}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+
+document.getElementById("totalLavoura").innerText =
+  (filtro === "todos" ? "Total geral: " : "Total: ") +
+  "R$ " + total.toLocaleString('pt-BR');}
+
+renderTabelaLavoura(); // carrega ao abrir
+
+document.getElementById("filtroLavoura").addEventListener("change", function() {
+  renderTabelaLavoura(this.value);
+});
+
+
+const dadosExportacao = [
+  { ano: 2024, descricao: "Pedras de cantaria ou de construção trabalhadas...", valor: 37180 },
+  { ano: 2023, descricao: "Mármores, travertinos, granitos belgas...", valor: 4483 },
+  { ano: 2017, descricao: "Pedras de cantaria ou de construção trabalhadas...", valor: 19252 },
+  { ano: 2015, descricao: "Pedras de cantaria ou de construção trabalhadas...", valor: 92785 },
+  { ano: 2014, descricao: "Pedras de cantaria ou de construção trabalhadas...", valor: 107806 },
+  { ano: 2013, descricao: "Pedras de cantaria ou de construção trabalhadas...", valor: 55316 },
+  { ano: 2012, descricao: "Pedras de cantaria ou de construção trabalhadas...", valor: 30312 },
+  { ano: 2011, descricao: "Máquinas-ferramentas para trabalhar pedra...", valor: 5762 }
+];
+
+function renderTabelaExportacao(filtro = "todos") {
+
+  const tbody = document.querySelector("#tabelaExportacao tbody");
+  tbody.innerHTML = "";
+
+  let dadosFiltrados = dadosExportacao;
+
+  if (filtro !== "todos") {
+    dadosFiltrados = dadosExportacao.filter(d => d.ano == filtro);
+  }
+
+  // ordenar por ano (desc)
+  dadosFiltrados.sort((a, b) => b.ano - a.ano);
+
+  let total = 0;
+
+  dadosFiltrados.forEach(d => {
+    total += d.valor;
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>${d.ano}</td>
+      <td>${d.descricao}</td>
+      <td>US$ ${d.valor.toLocaleString('pt-BR')}</td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById("totalExportacao").innerText =
+    (filtro === "todos" ? "Total geral: " : "Total: ") +
+    "US$ " + total.toLocaleString('pt-BR');
+}
+
+
+function popularFiltroAno() {
+
+  const select = document.getElementById("filtroAno");
+
+  const anos = [...new Set(dadosExportacao.map(d => d.ano))]
+    .sort((a, b) => b - a);
+
+  anos.forEach(ano => {
+    const op = document.createElement("option");
+    op.value = ano;
+    op.textContent = ano;
+    select.appendChild(op);
+  });
+}
+
+// exportações
+popularFiltroAno();
+renderTabelaExportacao();
+
+document.getElementById("filtroAno").addEventListener("change", function() {
+  renderTabelaExportacao(this.value);
+});
 
 
 
