@@ -332,6 +332,7 @@ font-weight:500;
 <!--a href="#historico">Histórico</a !-->
 <a href="#economia">Economia</a>
 <a href="#panorama">Panorama Setorial</a>
+<a href="#financiamento">Financiamento</a>
 <a href="#trabalho">Mercado de Trabalho</a>
 <a href="#educacao">Educação</a>
 <a href="#saude">Saúde</a>
@@ -613,7 +614,7 @@ font-weight:500;
 
 <div class="chart bloco-tabela">
 
-<h3>Detalhamento por finalidade</h3>
+<!--h3>Detalhamento por finalidade</h3 !-->
 
 <div class="tabela-scroll">
 <table id="tabelaSetor">
@@ -625,11 +626,77 @@ font-weight:500;
 </thead>
 <tbody></tbody>
 </table>
+
 </div>
+<span class="ano">Fonte: Banco do Nordeste</span></b>
 
 </div>
 
+<h2>Emendas Parlamentares Individuais</h2>
+<div class="cards">
+
+<div class="card">
+<b>Repasse <span class="ano"> (2025)</span></b></h3>
+<p>R$ 912.291</p>
+<span class="ano">Fonte: Tesouro Nacional</span></b>
 </div>
+</div>
+
+  <div class="chart">
+  <h3>Valores das Emendas</h3>
+    <canvas id="chartFinanciamento"></canvas>
+  <span class="ano">Fonte: Tesouro Nacional - </span></b>
+  <span class="ano">Valores deflacionados a fev/2026 (IPCA)</span></b>
+  </div>
+
+</div>
+
+<h2>BNDES</h2>
+<div class="cards">
+
+<div class="card">
+<b>Desembolso <span class="ano"> (2024)</span></b></h3>
+<p>R$ 425.000</p>
+<span class="ano">Fonte: BNDES</span></b>
+</div>
+</div>
+
+
+<div class="chart bloco-tabela">
+
+<div class="tabela-scroll">
+<table id="tabelaBNDES">
+<thead>
+<tr>
+<th>Porte da Empresa</th>
+<th>Inovação</th>
+<th>Setor</th>
+<th>Atividade Econômica</th>
+<th>Desembolso</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>MICRO</td>
+<td>NÃO</td>
+<td>INDÚSTRIA DE TRANSFORMAÇÃO</td>
+<td> MINERAL NÃO METÁLICO</td>
+<td>R$ 425.000</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+
+<span class="ano">Fonte: BNDES</span>
+
+</div>
+
+
+
+
+
 
 
 
@@ -13680,7 +13747,77 @@ atualizarTabela(empresas)
 
 </script>
 
+<script>
+const ctxFinanciamento = document.getElementById('chartFinanciamento');
 
+new Chart(ctxFinanciamento, {
+  type: 'line',
+  data: {
+    labels: ['2015','2017','2018','2019','2020','2021','2022','2023','2024','2025'],
+    datasets: [{
+      label: 'Valores (R$)',
+      data: [
+        339915,
+        336681,
+        421534,
+        223356,
+        703865,
+        1336354,
+        1237797,
+        556796,
+        867811,
+        912291
+      ],
+      borderWidth: 3,
+      tension: 0.3,
+      fill: false
+    }]
+  },
+  options: {
+    responsive: true,
+  layout: {
+    padding: {
+      left: 20,
+      right: 20,
+      top: 10,
+      bottom: 0
+    }
+  },
+    plugins: {
+      legend: {
+        display: false
+      },
+      datalabels: {
+      clip: false,   // 👈 impede corte dos números
+      clamp: true,    // 👈 mantém dentro do gráfico
+        anchor: 'end',
+        align: 'top',
+        formatter: function(value) {
+          return 'R$ ' + value.toLocaleString('pt-BR');
+        },
+        font: {
+          size: 10
+        }
+      }
+    },
+    scales: {
+    x: {
+      offset: true   // 👈 ESSENCIAL (resolve corte lateral)
+    },
+      y: {
+      beginAtZero: true,
+      grace: '10%',   // 👈 dá respiro no topo (evita cortar labels)
+        ticks: {
+          callback: function(value) {
+            return 'R$ ' + value.toLocaleString('pt-BR');
+          }
+        }
+      }
+    }
+  },
+  plugins: [ChartDataLabels]
+});
+</script>
 
 </body>
 </html>
