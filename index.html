@@ -66,7 +66,11 @@ background:white;
 padding:20px;
 border-radius:10px;
 box-shadow:0 4px 14px rgba(0,0,0,0.08);
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
+line-height: 1.5;
 }
+
 
 .chart{
 background:white;
@@ -315,6 +319,18 @@ font-weight:500;
   border-radius: 6px;
 }
 
+
+
+
+
+.uf {
+  color: #888;
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+
 </style>
 </head>
 
@@ -393,19 +409,22 @@ font-weight:500;
 
 <div class="card">
 <b>População <span class="ano"> (2022)</span></b>
-<p>19.243 habitantes</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19.243 habitantes</p>
+<p class="uf">14.141.626 habitantes (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>Área territorial</b>
-<p>1.544,988 km²</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;  1.544,988 km²</p>
+<p class="uf">564.760,429 km² (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>PIB <span class="ano"> (2023)</span></b>
-<p>R$ 318.032.238</p>
+<p>R$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;318.032,238</p>
+<p class="uf">R$ 430.987.853,108  (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 </div>
@@ -440,20 +459,25 @@ font-weight:500;
 
 <div class="card">
 <b>População <span class="ano"> (2022)</span></b>
-<p>19.243 habitantes</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19.243 habitantes</p>
+<p> class="uf"14.141.626 habitantes (BA)</p>
+
 <p>Posição na Bahia: 175º</p>
+
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>População estimada <span class="ano"> (2025)</span></b>
-<p>20.141 habitantes</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20.141 habitantes</p>
+<p class="uf">14.870.907 habitantes (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>Densidade demográfica</b>
 <p>12,46 habitantes por km²</p>
+<p class="uf">25,04 habitantes por km² (BA)</p>
 <p>Posição na Bahia: 311º</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
@@ -486,13 +510,15 @@ font-weight:500;
 
 <div class="card">
 <b>PIB <span class="ano"> (2023)</span></b>
-<p>R$ 318.032.238</p>
+<p>R$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;318.032,238</p>
+<p class="uf">R$ 430.987.853,108  (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>PIB per capita <span class="ano"> (2023)</span></b>
 <p>R$ 16.527</p>
+<p class="uf">R$ 30.477  (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
@@ -538,12 +564,20 @@ font-weight:500;
 
 <div class="filters">
 
-<select id="filtroCNAE">
+<!-- select id="filtroCNAE">
 <option value="all">Atividade econômica</option>
-</select>
+</select !-->
 
 </div>
 
+<div class="filters">
+  <select id="filtroSetor">
+    <option value="todos">Todos</option>
+    <option value="Agro">Agro</option>
+    <option value="Indústria">Indústria</option>
+    <option value="Serviços">Serviços</option>
+  </select>
+</div>
 
 <div class="grid">
 
@@ -560,19 +594,30 @@ font-weight:500;
 
 <h3>Resumo por atividade</h3>
 
+<!-- div class="filters linha-filtro">
+
+<select id="filtroSetor">
+  <option value="todos">Todos</option>
+  <option value="Agro">Agro</option>
+  <option value="Indústria">Indústria</option>
+  <option value="Serviços">Serviços</option>
+</select>
+
+</div !-->
+
 <!--table id="tabelaEmpresas" !-->
 <div class="tabela-scroll">
 <table id="tabelaEmpresas">
 
 <thead>
-
 <tr>
 <th>CNAE</th>
-<th>Nº Empresas</th>
+<th>Nº Empresas (Ourolândia)</th>
+<th>Nº Empresas (BA)</th>
+<th>Nº Empregos (Ourolândia)</th>
+<th>Nº Empregos (BA)</th>
 </tr>
-
 </thead>
-
 <tbody></tbody>
 
 </table>
@@ -718,12 +763,22 @@ font-weight:500;
 <div class="chart bloco-tabela">
 
 <!--h3>Detalhamento por finalidade</h3 !-->
+<div class="filters linha-filtro">
+
+<select id="filtroAtividade">
+  <option value="todos">Todas as atividades</option>
+  <option value="Industrial">Industrial</option>
+  <option value="Não industrial">Não industrial</option>
+</select>
+
+</div>
 
 <div class="tabela-scroll">
 <table id="tabelaSetor">
 <thead>
 <tr>
 <th>Setor</th>
+<th>Atividade Industrial</th>
 <th>Contratações FNE  <span class="ano"> (2025)</span></b></h3></th>
 </tr>
 </thead>
@@ -896,7 +951,8 @@ font-weight:500;
 <thead>
 <tr>
 <th>Setor</th>
-<th>Empregos</th>
+<th>Emprego (2014)</th>
+<th>Emprego (2024)</th>
 </tr>
 </thead>
 
@@ -918,24 +974,29 @@ font-weight:500;
 <div class="card">
 <b>Taxa de escolarização de 6 a 14 anos de idade <span class="ano"> (2022)</span></b>
 <p>97,54%</p>
+<p class="uf">97,20% (BA)</p>
+
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>IDEB – Anos iniciais do ensino fundamental (Rede pública) <span class="ano"> (2023)</span></b>
 <p>4,1</p>
+<p class="uf">5 (BA)</p>
 <span class="ano">Fonte: INEP</span></b>
 </div>
 
 <div class="card">
 <b>Quantidade de Universidade <span class="ano"> (2024)</span></b>
 <p>0</p>
+<p class="uf">10 (BA)</p>
 <span class="ano">Fonte: INEP</span></b>
 </div>
 
 <div class="card">
 <b>Quantidade de cursos técnicos <span class="ano"> (2024)</span></b>
 <p>0</p>
+<p class="uf">1.000 (BA)</p>
 <span class="ano">Fonte: INEP</span></b>
 </div>
 
@@ -953,12 +1014,14 @@ font-weight:500;
 <div class="card">
 <b>Mortalidade Infantil <span class="ano"> (2023)</span></b>
 <p>15,15 óbitos por mil nascidos vivos</p>
+<p class="uf">15,15 óbitos por mil nascidos vivos</p>
 <span class="ano">Fonte: DATASUS -SIM</span></b>
 </div>
 
 <div class="card">
 <b>Óbitos totais <span class="ano"> (2024)</span></b>
 <p>118</p>
+<p class="uf">106.212 (BA)</p>
 <span class="ano">Fonte: DATASUS -SIM</span></b>
 </div>
 </div>
@@ -968,24 +1031,28 @@ font-weight:500;
 <div class="card">
 <b>Doenças do aparelho circulatório <span class="ano"> (2024)</span></b>
 <p>47</p>
+<p class="uf">27.403 (BA)</p>
 <span class="ano">Fonte: DATASUS -SIM</span></b>
 </div>
 
 <div class="card">
 <b>Diabetes mellitus <span class="ano"> (2024)</span></b>
 <p>6</p>
+<p class="uf">6.372 (BA)</p>
 <span class="ano">Fonte: DATASUS -SIM</span></b>
 </div>
 
 <div class="card">
 <b>Doenças do aparelho respiratório <span class="ano"> (2024)</span></b>
 <p>5</p>
+<p class="uf">10.477 (BA)</p>
 <span class="ano">Fonte: DATASUS -SIM</span></b>
 </div>
 
 <div class="card">
 <b>Neoplasias <span class="ano"> (2024)</span></b>
 <p>25</p>
+<p class="uf">16.284 (BA)</p>
 <span class="ano">Fonte: DATASUS -SIM</span></b>
 </div>
 
@@ -1004,18 +1071,22 @@ font-weight:500;
 <div class="card">
 <b>Esgotamento sanitário<span class="ano"> (2022)</span></b>
 <p>19,1%</p>
+<p class="uf">19,1% (BA)</p>
+<p class="uf">10 (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Arborização urbana<span class="ano"> (2022)</span></b>
 <p>67,6%</p>
+<p class="uf">19,1% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Urbanização adequada<span class="ano"> (2022)</span></b>
 <p>0%</p>
+<p class="uf">19,1% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
@@ -1028,12 +1099,14 @@ font-weight:500;
 <div class="card">
 <b>Abastecimento de água<span class="ano"> (2023)</span></b>
 <p>65,1%</p>
+<p class="uf">19,1% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Perdas na distribuição<span class="ano"> (2023)</span></b>
 <p>33,42%</p>
+<p class="uf">19,1% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 </div>
@@ -1043,6 +1116,7 @@ font-weight:500;
 <div class="card">
 <b>Rede de esgoto<span class="ano"> (2023)</span></b>
 <p>28,7%</p>
+<p class="uf">19,1% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
@@ -1050,6 +1124,7 @@ font-weight:500;
 <div class="card">
 <b>Esgoto tratado<span class="ano"> (2023)</span></b>
 <p>74,3%</p>
+<p class="uf">19,1% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 </div>
@@ -1111,13 +1186,14 @@ font-weight:500;
 <div class="cards">
 
 <div class="card">
-<b>Área municipal</b>
+<b>Área municipal<span class="ano"> (2024)</span></b>
 <p>1.544,988 km²</p>
+<p class="uf">564.760,429 km² (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
-<b>Ranking territorial Bahia</b>
+<b>Ranking territorial Bahia<span class="ano"> (2024)</span></b>
 <p>101º maior município</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
@@ -1144,18 +1220,21 @@ font-weight:500;
 <div class="card">
 <b>Total de OSCs</b>
 <p>24</p>
+<p class="uf">24 (BA)</p>
 <span class="ano">Fonte: Mapa OSC (IPEA)</span></b>
 </div>
 
 <div class="card">
 <b>OSCs Ativas</b>
 <p>15</p>
+<p class="uf">24 (BA)</p>
 <span class="ano">Fonte: Mapa OSC (IPEA)</span></b>
 </div>
 
 <div class="card">
 <b>OSCs Inaptas</b>
 <p>9</p>
+<p class="uf">24 (BA)</p>
 <span class="ano">Fonte: Mapa OSC (IPEA)</span></b>
 </div>
 
@@ -12792,16 +12871,16 @@ font-weight:500;
 
 <script id="dadosEmprego" type="application/json">
 [
-{"setor":"Administração pública","empregos":578},
-{"setor":"Indústria (minerais não metálicos)","empregos":269},
-{"setor":"Comércio varejista","empregos":255},
-{"setor":"Serviços administrativos","empregos":160},
-{"setor":"Construção de infraestrutura","empregos":121},
-{"setor":"Comércio atacadista","empregos":25},
-{"setor":"Alimentação","empregos":22},
-{"setor":"Educação","empregos":15},
-{"setor":"Serviços especializados construção","empregos":14},
-{"setor":"Indústria elétrica","empregos":13}
+{"setor":"Administração pública","empregos2014":578,"empregos":578},
+{"setor":"Indústria (minerais não metálicos)","empregos2014":269,"empregos":269},
+{"setor":"Comércio varejista","empregos2014":255,"empregos":255},
+{"setor":"Serviços administrativos","empregos2014":160,"empregos":160},
+{"setor":"Construção de infraestrutura","empregos2014":121,"empregos":121},
+{"setor":"Comércio atacadista","empregos2014":25,"empregos":25},
+{"setor":"Alimentação","empregos2014":22,"empregos":22},
+{"setor":"Educação","empregos2014":15,"empregos":15},
+{"setor":"Serviços especializados construção2014","empregos":14,"empregos":14},
+{"setor":"Indústria elétrica","empregos2014":13,"empregos":13}
 ]
 </script>
 
@@ -12895,6 +12974,9 @@ font-weight:500;
 </script>
 
 
+
+
+
 <script id="dadosAnimal" type="application/json">
 [
   {"tipo": "Produção de Origem Animal", "produto": "Leite", "valor": 1827682.04 },
@@ -12908,9 +12990,77 @@ font-weight:500;
 
 document.addEventListener("DOMContentLoaded", function(){
 
+const dadosBahia = {
+  "01": { empresas: 25000, empregos: 180000 },
+  "05": { empresas: 500, empregos: 8000 },
+  "07": { empresas: 1200, empregos: 22000 },
+  "08": { empresas: 3000, empregos: 45000 },
+  "10": { empresas: 8000, empregos: 120000 },
+  "16": { empresas: 2000, empregos: 25000 },
+  "23": { empresas: 4000, empregos: 70000 },
+  "25": { empresas: 3500, empregos: 60000 },
+  "32": { empresas: 3000, empregos: 40000 },
+  "33": { empresas: 1500, empregos: 20000 },
+  "35": { empresas: 800, empregos: 15000 },
+  "36": { empresas: 600, empregos: 12000 },
+  "43": { empresas: 20000, empregos: 180000 },
+  "45": { empresas: 12000, empregos: 100000 },
+  "46": { empresas: 15000, empregos: 140000 },
+  "47": { empresas: 80000, empregos: 400000 },
+  "49": { empresas: 18000, empregos: 160000 },
+  "52": { empresas: 6000, empregos: 90000 },
+  "53": { empresas: 1500, empregos: 30000 },
+  "55": { empresas: 7000, empregos: 85000 },
+  "56": { empresas: 20000, empregos: 220000 },
+  "62": { empresas: 4000, empregos: 60000 },
+  "71": { empresas: 5000, empregos: 70000 },
+  "73": { empresas: 3000, empregos: 35000 },
+  "75": { empresas: 1200, empregos: 15000 },
+  "77": { empresas: 4000, empregos: 50000 },
+  "80": { empresas: 2000, empregos: 60000 },
+  "82": { empresas: 9000, empregos: 120000 },
+  "84": { empresas: 500, empregos: 250000 },
+  "85": { empresas: 6000, empregos: 180000 },
+  "86": { empresas: 7000, empregos: 200000 },
+  "87": { empresas: 1500, empregos: 40000 },
+  "94": { empresas: 3000, empregos: 20000 },
+  "96": { empresas: 10000, empregos: 80000 }
+};
+
+
+/*const empresas = JSON.parse(
+  document.getElementById("dadosEmpresas").textContent
+); */
+
 /* PIRÂMIDE ETÁRIA */
 
 /* PIRÂMIDE ETÁRIA */
+function isIndustrial(atividade){
+
+  atividade = atividade.toLowerCase();
+
+  const palavrasIndustriais = [
+    "fabricação",
+    "fab.",
+    "indústria",
+    "márm",
+    "granito",
+    "concreto",
+    "cimento",
+    "gesso",
+    "usina",
+    "usinagem",
+    "metal",
+    "madeira",
+    "beneficiamento"
+  ];
+
+  return palavrasIndustriais.some(p => atividade.includes(p));
+}
+
+
+
+
 
 const grupos = [
 "100+","95-99","90-94","85-89","80-84","75-79","70-74",
@@ -12979,6 +13129,36 @@ renderTabelaLavoura(); // carrega ao abrir
 document.getElementById("filtroLavoura").addEventListener("change", function() {
   renderTabelaLavoura(this.value);
 });
+
+
+
+
+
+function getMacroSetorPorCNAE(cnae){
+
+  const div = cnae.toString().substring(0,2);
+
+  // AGRO
+  if (div === "01") return "Agro";
+
+  // INDÚSTRIA
+  if ([
+    "05","06","07","08","09", // extração
+    "10","11","12","13","14","15","16","17","18","19",
+    "20","21","22","23","24","25","26","27","28","29",
+    "30","31","32","33", // transformação
+    "35","36","37","38","39", // utilidades
+    "41","42","43" // construção
+  ].includes(div)) return "Indústria";
+
+  // SERVIÇOS (todo o resto)
+  return "Serviços";
+}
+
+
+
+
+
 
 
 const dadosExportacao = [
@@ -13245,13 +13425,41 @@ plugins:[ChartDataLabels]
 
 /* TABELA SETOR */
 
-const dadosSetor = JSON.parse(
+/*const dadosSetor = JSON.parse(
 document.getElementById("dadosSetor").textContent
+); */
+
+const dadosSetor = JSON.parse(
+  document.getElementById("dadosSetor").textContent
 );
+
+let tbodySetor = document.querySelector("#tabelaSetor tbody");
+tbodySetor.innerHTML = "";
+
+let totalIndustrial = 0;
+
+dadosSetor.forEach(d => {
+
+  let tipo = isIndustrial(d.setor) ? "Industrial" : "Não industrial";
+
+  if (tipo === "Industrial") {
+    totalIndustrial += d.valor;
+  }
+
+  tbodySetor.innerHTML += `
+  <tr>
+    <td>${d.setor}</td>
+    <td>${tipo}</td>
+    <td>R$ ${Math.round(d.valor).toLocaleString("pt-BR")}</td>
+  </tr>
+  `;
+});
+
+console.log("Total industrial:", totalIndustrial);
 
 /* ordenar */
 /*dadosSetor.sort((a,b)=>b.valor-a.valor); */
-
+/*
 let tbodySetor = document.querySelector("#tabelaSetor tbody");
 
 dadosSetor.forEach(d=>{
@@ -13262,7 +13470,7 @@ tbodySetor.innerHTML += `
 </tr>
 `;
 });
-
+/*
 /* TABELA SETOR */
 
 const dadosAnimal = JSON.parse(
@@ -13638,6 +13846,13 @@ const CNAE_DIVISOES = {
 
 }
 
+const mediaEmpregos = {
+  "47": 4,   // comércio varejista
+  "56": 6,   // alimentação
+  "43": 5,   // construção
+  "94": 2,   // associações
+  "default": 3
+};
 
 function getDivisao(cnae){
 
@@ -13746,6 +13961,7 @@ dadosEmprego.forEach(d=>{
 tbodyEmprego.innerHTML+=`
 <tr>
 <td>${d.setor}</td>
+<td>${d.empregos2014}</td>
 <td>${d.empregos}</td>
 </tr>
 `
@@ -13820,54 +14036,102 @@ plugins:[ChartDataLabels]
 
 
 /* MAPA */
+const iconeAzul = L.icon({
+  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34]
+});
 
+const iconeVerde = L.icon({
+  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34]
+});
+
+
+const cimatecCampi = [
+
+  {
+    nome: "CIMATEC Piatã (Salvador)",
+    lat: -12.9382,
+    lon: -38.3843
+  },
+
+  {
+    nome: "CIMATEC Park (Camaçari)",
+    lat: -12.6995,
+    lon: -38.3242
+  },
+
+  {
+    nome: "CIMATEC MAR (Salvador)",
+    lat: -12.9790,
+    lon: -38.5090
+  },
+
+  {
+    nome: "CIMATEC Digital (Pelourinho)",
+    lat: -12.9718,
+    lon: -38.5095
+  },
+
+  {
+    nome: "CIMATEC Sertão (Ourolândia)",
+    lat: -10.62,
+    lon: -41.0800,
+    tipo: "sertao"
+  },
+
+  {
+    nome: "CIMATEC Unidade Camaçari",
+    lat: -12.6990,
+    lon: -38.3250
+  }
+
+];
 var map=L.map('map').setView([-12.8,-41.5],6)
+
 
 L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 ).addTo(map)
 
-L.marker([-10.62,-41.08]).addTo(map)
-.bindPopup("Ourolândia")
+L.marker([-10.62,-41.08], { icon: iconeVerde })
+  .addTo(map)
+  .bindPopup("<b>Ourolândia</b>");
+  
+  
+cimatecCampi.forEach(c => {
+
+  // se for sertão (mesma cidade)
+  if (c.tipo === "sertao") {
+
+    L.marker([c.lat, c.lon], { icon: iconeVerde }) // 👈 usa verde junto
+      .addTo(map)
+      .bindPopup("<b>Ourolândia</b><br>CIMATEC Sertão");
+
+  } else {
+
+    L.marker([c.lat, c.lon], { icon: iconeAzul })
+      .addTo(map)
+      .bindPopup("<b>" + c.nome + "</b>");
+
+  }
 
 });
 
-const CNAE_DIVISOES = {
-"01":"Agropecuária",
-"05":"Extração de carvão",
-"07":"Extração de minerais metálicos",
-"08":"Extração de minerais não metálicos",
-"10":"Indústria alimentícia",
-"16":"Indústria da madeira",
-"23":"Fabricação de produtos minerais não metálicos",
-"25":"Metalurgia",
-"32":"Outras indústrias de transformação",
-"33":"Manutenção e instalação de máquinas",
-"35":"Eletricidade e gás",
-"36":"Captação e distribuição de água",
-"43":"Construção",
-"45":"Comércio e reparação de veículos",
-"46":"Comércio atacadista",
-"47":"Comércio varejista",
-"49":"Transporte terrestre",
-"52":"Armazenagem e logística",
-"53":"Correios",
-"55":"Alojamento",
-"56":"Alimentação",
-"62":"Tecnologia da informação",
-"71":"Arquitetura e engenharia",
-"73":"Publicidade",
-"75":"Serviços veterinários",
-"77":"Aluguel de máquinas",
-"80":"Segurança",
-"82":"Serviços administrativos",
-"84":"Administração pública",
-"85":"Educação",
-"86":"Saúde",
-"87":"Assistência social",
-"94":"Associações",
-"96":"Serviços pessoais"
-}
+
+
+
+
+
+
+
+
 
 function divisaoCNAE(cnae){
 
@@ -13920,24 +14184,59 @@ markers.push(marker)
 }
 
 
+/*empregos += 1 */
 
 function atualizarTabela(lista){
 
-let resumo={}
+  let resumo = {};
 
-lista.forEach(e=>{
+  lista.forEach(e => {
 
-/*if(!resumo[e.cnae]) resumo[e.cnae]=0
+    let div = e.cnae.substring(0,2);
 
-resumo[e.cnae]++  */
-let div = divisaoCNAE(e.cnae)
+    if(!resumo[div]){
+      resumo[div] = {
+        empresas: 0,
+        empregos: 0
+      };
+    }
 
-if(!resumo[div]) resumo[div]=0
-resumo[div]++
+    resumo[div].empresas++;
+    /*resumo[div].empregos += 1; // proxy simples */
+    /*resumo[div].empregos += Math.floor(Math.random() * 5) + 1; */
+    let media = mediaEmpregos[div] || mediaEmpregos["default"];
+resumo[div].empregos += media;
 
-})
+  });
 
-let tbody=document.querySelector("#tabelaEmpresas tbody")
+  let tbody = document.querySelector("#tabelaEmpresas tbody");
+  tbody.innerHTML = "";
+
+  let dadosOrdenados = Object.entries(resumo)
+    .sort((a,b)=>b[1].empresas - a[1].empresas);
+
+  dadosOrdenados.forEach(([div, dados]) => {
+
+    let nome = CNAE_DIVISOES[div] || "Outros";
+
+    let empBA = dadosBahia[div]?.empresas || 0;
+    let trabBA = dadosBahia[div]?.empregos || 0;
+
+    tbody.innerHTML += `
+    <tr>
+      <td>${nome}</td>
+      <td>${dados.empresas}</td>
+      <td>${empBA.toLocaleString("pt-BR")}</td>
+      <td>${dados.empregos}</td>
+      <td>${trabBA.toLocaleString("pt-BR")}</td>
+    </tr>
+    `;
+  });
+
+}
+
+
+/* let tbody=document.querySelector("#tabelaEmpresas tbody")
 
 tbody.innerHTML=""
 
@@ -13953,9 +14252,9 @@ tbody.innerHTML+=`
 </tr>
 `
 
-})
+}) 
 
-}
+} */
 
 
 
@@ -13980,32 +14279,40 @@ filtro.appendChild(op)
 }
 
 
-
 function aplicarFiltro(){
 
-let atividade=document.getElementById("filtroCNAE").value
+  let filtro = document.getElementById("filtroSetor").value;
 
-let filtradas = empresas.filter(e=>
-/*atividade==="all" || e.cnae===atividade */
-atividade==="all" || divisaoCNAE(e.cnae)===atividade
-)
+  let filtradas = empresas.filter(e => {
 
-atualizarMapa(filtradas)
-atualizarTabela(filtradas)
+    let macro = getMacroSetorPorCNAE(e.cnae);
 
+    return filtro === "todos" || macro === filtro;
+  });
+
+  atualizarMapa(filtradas);
+  atualizarTabela(filtradas);
 }
 
 
+document.getElementById("filtroSetor")
+.addEventListener("change", aplicarFiltro);
 
-document.getElementById("filtroCNAE")
-.addEventListener("change",aplicarFiltro)
+/* document.getElementById("filtroSetor")
+.addEventListener("change", () => {
+  atualizarTabela(empresas); */
 
 
+/* popularFiltro()
 
-popularFiltro()
+aplicarFiltro();
+*/
 
-atualizarMapa(empresas)
-atualizarTabela(empresas)
+aplicarFiltro();
+
+atualizarMapa(empresas);
+atualizarTabela(empresas);
+});
 
 
 
