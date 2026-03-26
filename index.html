@@ -38,6 +38,7 @@ opacity:0.8;
 }
 
 
+
 body{
 font-family:Poppins;
 margin:0;
@@ -73,6 +74,14 @@ line-height: 1.5;
 
 
 .chart{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 14px rgba(0,0,0,0.08);
+margin-top:20px;
+}
+
+.chart1{
 background:white;
 padding:20px;
 border-radius:10px;
@@ -116,6 +125,9 @@ h1{margin-top:0}
 
 .chart canvas{
 height:320px !important;
+}
+.chart1 canvas{
+height:640px !important;
 }
 
 #pibSetores{
@@ -322,14 +334,45 @@ font-weight:500;
 
 
 
+.coop-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+#mapCoop{
+  height: 450px;
+  border-radius:10px;
+}
+
+.tabela-scroll{
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+
+
 
 .uf {
   color: #888;
   margin: 0;
-  font-size: inherit;
-  font-family: inherit;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 16px;
 }
 
+
+#mapCoop{
+  height:450px;
+  border-radius:10px;
+}
+
+#tabelaCoop thead th{
+  position: sticky;
+  top: 0;
+  background: #eef2fb;
+  z-index: 2;
+}
 
 </style>
 </head>
@@ -368,6 +411,7 @@ font-weight:500;
 <a href="#ambiente">Meio Ambiente</a>
 <a href="#territorio">Território</a>
 <a href="#osc">Organização da Sociedade Civil</a>
+<a href="#coop">Cooperativas da Agricultura Familiar na Bahia</a>
 <a href="#ranking">Ranking Bahia</a>
 <hr class="linha-menu">
 
@@ -397,6 +441,7 @@ font-weight:500;
 <h2>Localização</h2>
 
 <div id="map"></div>
+<!--div id="mapCoop"></div!-->
 
 </div>
 
@@ -409,21 +454,21 @@ font-weight:500;
 
 <div class="card">
 <b>População <span class="ano"> (2022)</span></b>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19.243 habitantes</p>
+<p>19.243 habitantes</p>
 <p class="uf">14.141.626 habitantes (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>Área territorial</b>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;  1.544,988 km²</p>
+<p>1.544,988 km²</p>
 <p class="uf">564.760,429 km² (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
 <div class="card">
 <b>PIB <span class="ano"> (2023)</span></b>
-<p>R$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;318.032,238</p>
+<p>R$318.032,238</p>
 <p class="uf">R$ 430.987.853,108  (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
@@ -459,8 +504,8 @@ font-weight:500;
 
 <div class="card">
 <b>População <span class="ano"> (2022)</span></b>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19.243 habitantes</p>
-<p> class="uf"14.141.626 habitantes (BA)</p>
+<p>19.243 habitantes</p>
+<p class="uf">14.141.626 habitantes (BA)</p>
 
 <p>Posição na Bahia: 175º</p>
 
@@ -469,7 +514,7 @@ font-weight:500;
 
 <div class="card">
 <b>População estimada <span class="ano"> (2025)</span></b>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20.141 habitantes</p>
+<p>20.141 habitantes</p>
 <p class="uf">14.870.907 habitantes (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
@@ -510,7 +555,7 @@ font-weight:500;
 
 <div class="card">
 <b>PIB <span class="ano"> (2023)</span></b>
-<p>R$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;318.032,238</p>
+<p>R$318.032,238</p>
 <p class="uf">R$ 430.987.853,108  (BA)</p>
 <span class="ano">Fonte: IBGE</span></b>
 </div>
@@ -536,6 +581,26 @@ font-weight:500;
 </div>
 
 </div>
+
+<div class="cards">
+
+<div class="card">
+<b>Quantidade de bolsa bolsa familia <span class="ano"> (2025)</span></b>
+<p>4.284 famílias beneficiárias</p>
+<p class="uf">2.307.844 famílias beneficiárias (BA)</p>
+<span class="ano">Fonte: Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome</span></b>
+</div>
+
+<div class="card">
+<b>Quantidade de bolsa bolsa familia <span class="ano"> (2014)</span></b>
+<p>3.472 famílias beneficiárias</p>
+<p class="uf">1.836.209 famílias beneficiárias (BA)</p>
+<span class="ano">Fonte: Ministério do Desenvolvimento Social</span></b>
+</div>
+
+
+</div>
+
 
 <div class="grid">
 
@@ -1213,6 +1278,46 @@ font-weight:500;
 </div>
 
 
+<div id="coop" class="section">
+
+<h1>Cooperativas da Agricultura Familiar na Bahia</h1>
+
+<div class="chart">
+
+  <div class="filters">
+    <select id="filtroMunicipioCoop" multiple size="6">
+    </select>
+  </div>
+
+  <div class="coop-grid">
+    <div id="mapCoop"></div>
+
+    <div class="tabela-scroll">
+      <table id="tabelaCoop">
+        <thead>
+          <tr>
+            <th>Empreendimento</th>
+            <th>Território</th>
+            <th>Descrição</th>
+            <th>Município</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
 <div id="osc" class="section">
 <h2>Organização da Sociedade Civil</h2>
 <div class="cards">
@@ -1296,6 +1401,7 @@ font-weight:500;
 
 </div>
 
+
 <script id="dadosGenero" type="application/json">
 
 {
@@ -1343,6 +1449,76 @@ font-weight:500;
 {"nome":"Associacao agricola de lagoa33 e adjacencias","area":"Rural / Agricultura","cnpj":"53.532.288/0001-01","lat":-10.9853,"lon":-41.0511},
 {"nome":"Associacao comunitaria dos pequenos produtores rurais do povoado de queimadas e adjacencias","area":"Rural / Agricultura","cnpj":"54.535.263/0001-24","lat":-10.9986,"lon":-41.0806},
 {"nome":"Associacao comunitaria e evangelica de alagadico e adjacencias","area":"Religiosa","cnpj":"03.169.223/0001-75","lat":-10.9714,"lon":-41.1025}
+]
+</script>
+
+<script id="dadosCoop" type="application/json">
+[
+{"territorio":"Portal do Sertão","nome":"ASSOCIAÇÃO DE DESENVOLVIMENTO COMUNITÁRIO RURAL DO TEIRÚ","descricao":"Frango caipira e congelado","contato":"Teiru, Conceição da Feira/BA","municipio":"Conceição da Feira","lat":-12.51,"lon":-38.99},
+
+{"territorio":"Portal do Sertão","nome":"ASSOCIAÇÃO DOS PRODUTORES GOV. JOÃO DURVAL","descricao":"Sequilhos, farinha e camarão seco","contato":"Feira de Santana/BA","municipio":"Feira de Santana","lat":-12.27,"lon":-38.96},
+
+{"territorio":"Metropolitano de Salvador","nome":"ASSOCIAÇÃO SOL NASCENTE","descricao":"Temperos diversos","contato":"Vera Cruz/BA","municipio":"Vera Cruz","lat":-12.96,"lon":-38.61},
+
+{"territorio":"Metropolitano de Salvador","nome":"COOPERATIVA REPESCAR","descricao":"Mariscos e pescados","contato":"Vera Cruz/BA","municipio":"Vera Cruz","lat":-12.96,"lon":-38.61},
+
+{"territorio":"Metropolitano de Salvador","nome":"COOMAS","descricao":"Mariscos","contato":"Salinas da Margarida/BA","municipio":"Salinas da Margarida","lat":-12.87,"lon":-38.76},
+
+{"territorio":"Bacia do Jacuípe","nome":"COCAL","descricao":"Leite em pó","contato":"Capela do Alto Alegre/BA","municipio":"Capela do Alto Alegre","lat":-11.66,"lon":-39.83},
+
+{"territorio":"Bacia do Jacuípe","nome":"COOAP","descricao":"Caprinos e ovinos","contato":"Pintadas/BA","municipio":"Pintadas","lat":-11.82,"lon":-39.91},
+
+{"territorio":"Chapada Diamantina","nome":"COOPAMA","descricao":"Cachaça","contato":"Abaíra/BA","municipio":"Abaíra","lat":-13.25,"lon":-41.66},
+
+{"territorio":"Chapada Diamantina","nome":"COOPAGRIL","descricao":"Feijão e morango","contato":"Morro do Chapéu/BA","municipio":"Morro do Chapéu","lat":-11.55,"lon":-41.16},
+
+{"territorio":"Chapada Diamantina","nome":"COOPERBIO","descricao":"Café orgânico","contato":"Seabra/BA","municipio":"Seabra","lat":-12.42,"lon":-41.77},
+
+{"territorio":"Sisal","nome":"APAEB","descricao":"Leite de cabra e sisal","contato":"Valente/BA","municipio":"Valente","lat":-11.41,"lon":-39.46},
+
+{"territorio":"Sisal","nome":"COOAMEL","descricao":"Mel","contato":"Serrinha/BA","municipio":"Serrinha","lat":-11.66,"lon":-39.01},
+
+{"territorio":"Sisal","nome":"COOPERAGIL","descricao":"Beiju e polpas","contato":"Ichu/BA","municipio":"Ichu","lat":-11.75,"lon":-39.19},
+
+{"territorio":"Sisal","nome":"ASSOCIAÇÃO BASTIANENSE","descricao":"Beiju e farinha","contato":"Retirolândia/BA","municipio":"Retirolândia","lat":-11.48,"lon":-39.43},
+
+{"territorio":"Sisal","nome":"COOPERLAD","descricao":"Produção agrícola","contato":"Tucano/BA","municipio":"Tucano","lat":-10.96,"lon":-38.79},
+
+{"territorio":"Baixo Sul","nome":"COOPALM","descricao":"Palmito","contato":"Ituberá/BA","municipio":"Ituberá","lat":-13.73,"lon":-39.15},
+
+{"territorio":"Baixo Sul","nome":"COOPRAP","descricao":"Artesanato piaçava","contato":"Nilo Peçanha/BA","municipio":"Nilo Peçanha","lat":-13.60,"lon":-39.10},
+
+{"territorio":"Baixo Sul","nome":"COOFAVA","descricao":"Guaraná e dendê","contato":"Valença/BA","municipio":"Valença","lat":-13.37,"lon":-39.07},
+
+{"territorio":"Piemonte do Paraguaçu","nome":"COOPAITA","descricao":"Frutas desidratadas","contato":"Itaberaba/BA","municipio":"Itaberaba","lat":-12.53,"lon":-40.31},
+
+{"territorio":"Velho Chico","nome":"COOPAMESF","descricao":"Mel","contato":"Ibotirama/BA","municipio":"Ibotirama","lat":-12.18,"lon":-43.22},
+
+{"territorio":"Extremo Sul","nome":"APIEXSU","descricao":"Apicultura","contato":"Teixeira de Freitas/BA","municipio":"Teixeira de Freitas","lat":-17.54,"lon":-39.74},
+
+{"territorio":"Piemonte da Diamantina","nome":"COOPES","descricao":"Licuri","contato":"Capim Grosso/BA","municipio":"Capim Grosso","lat":-11.38,"lon":-40.01},
+
+{"territorio":"Médio Rio de Contas","nome":"COOPROAF","descricao":"Polpas e doces","contato":"Manoel Vitorino/BA","municipio":"Manoel Vitorino","lat":-14.15,"lon":-40.23},
+
+{"territorio":"Sertão Produtivo","nome":"ASSOCIAÇÃO CAMPO SECO","descricao":"Produção rural","contato":"Brumado/BA","municipio":"Brumado","lat":-14.20,"lon":-41.66},
+
+{"territorio":"Litoral Sul","nome":"COOPAFS","descricao":"Cacau","contato":"Itabuna/BA","municipio":"Itabuna","lat":-14.79,"lon":-39.28},
+
+{"territorio":"Vitória da Conquista","nome":"COOPASUB","descricao":"Farinha e biscoitos","contato":"Vitória da Conquista/BA","municipio":"Vitória da Conquista","lat":-14.86,"lon":-40.84},
+
+{"territorio":"Vale do Jiquiriça","nome":"COOAMA","descricao":"Hortaliças","contato":"Amargosa/BA","municipio":"Amargosa","lat":-13.03,"lon":-39.60},
+
+{"territorio":"Sertão do São Francisco","nome":"COOPERCUC","descricao":"Doces de umbu","contato":"Uauá/BA","municipio":"Uauá","lat":-9.83,"lon":-39.48},
+
+{"territorio":"Semiárido Nordeste II","nome":"CECOAPI","descricao":"Mel","contato":"Ribeira do Pombal/BA","municipio":"Ribeira do Pombal","lat":-10.83,"lon":-38.53},
+
+{"territorio":"Recôncavo","nome":"APORBA","descricao":"Produtos orgânicos","contato":"Conceição do Almeida/BA","municipio":"Conceição do Almeida","lat":-12.78,"lon":-39.17},
+
+{"territorio":"Litoral Norte e Agreste Baiano","nome":"COOPEALNOR","descricao":"Frutas cítricas","contato":"Rio Real/BA","municipio":"Rio Real","lat":-11.48,"lon":-37.94},
+
+{"territorio":"Irecê","nome":"COOPIRECÊ","descricao":"Grãos","contato":"Irecê/BA","municipio":"Irecê","lat":-11.30,"lon":-41.86},
+
+{"territorio":"Costa do Descobrimento","nome":"COOPEXSULBA","descricao":"Especiarias, frutas e derivados da mandioca","contato":"Eunápolis/BA, ju_assovale@hotmail.com","municipio":"Eunápolis","lat":-16.37,"lon":-39.58}
 ]
 </script>
 
@@ -13423,6 +13599,16 @@ plugins:[ChartDataLabels]
 
 });
 
+/* */
+
+
+
+
+
+
+
+
+
 /* TABELA SETOR */
 
 /*const dadosSetor = JSON.parse(
@@ -13514,6 +13700,108 @@ tbodyFNE.innerHTML += `
 `;
 });
 */
+
+
+/* Coop  */
+const Coop = JSON.parse(
+  document.getElementById("dadosCoop").textContent
+);
+
+const mapCoop = L.map('mapCoop').setView([-12.5, -41], 6);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+.addTo(mapCoop);
+
+const selectMunicipio = document.getElementById("filtroMunicipioCoop");
+
+// adiciona opção "todos"
+const optionTodos = document.createElement("option");
+optionTodos.value = "todos";
+optionTodos.textContent = "Todos os municípios";
+selectMunicipio.appendChild(optionTodos);
+
+// popula municípios
+const municipios = [...new Set(Coop.map(d => d.municipio))].sort();
+
+municipios.forEach(m => {
+  const opt = document.createElement("option");
+  opt.value = m;
+  opt.textContent = m;
+  selectMunicipio.appendChild(opt);
+});
+
+// pega seleção múltipla
+function getMunicipiosSelecionados(){
+  const valores = Array.from(selectMunicipio.selectedOptions).map(o => o.value);
+
+  if(valores.includes("todos") || valores.length === 0){
+    return [];
+  }
+
+  return valores;
+}
+
+// render
+function renderCoop(){
+
+  const municipiosSel = getMunicipiosSelecionados();
+
+  const filtrados = Coop.filter(d =>
+    municipiosSel.length === 0 ||
+    municipiosSel.includes(d.municipio)
+  );
+
+  // limpa markers
+  mapCoop.eachLayer(layer => {
+    if(layer instanceof L.Marker) mapCoop.removeLayer(layer);
+  });
+
+  let bounds = [];
+
+  filtrados.forEach(o=>{
+    L.marker([o.lat, o.lon])
+      .addTo(mapCoop)
+      .bindPopup(`<b>${o.nome}</b><br>${o.municipio}`);
+
+    bounds.push([o.lat, o.lon]);
+  });
+
+  if(bounds.length){
+    mapCoop.fitBounds(bounds, {padding:[40,40]});
+  }
+
+  // tabela
+  const tbody = document.querySelector("#tabelaCoop tbody");
+  tbody.innerHTML = "";
+
+  filtrados.forEach(o=>{
+    tbody.innerHTML += `
+      <tr>
+        <td>${o.nome}</td>
+        <td>${o.territorio}</td>
+        <td>${o.descricao}</td>
+        <td>${o.municipio}</td>
+      </tr>
+    `;
+  });
+}
+
+// evento
+selectMunicipio.addEventListener("change", renderCoop);
+
+// init
+renderCoop();
+
+
+
+
+// ================= DADOS =================
+
+
+
+
+
+
 
 /* OSC */
 
@@ -14069,8 +14357,8 @@ const cimatecCampi = [
 
   {
     nome: "CIMATEC MAR (Salvador)",
-    lat: -12.9790,
-    lon: -38.5090
+    lat: -12.96273,
+    lon: -38.50781
   },
 
   {
