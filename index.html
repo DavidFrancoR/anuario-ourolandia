@@ -399,7 +399,6 @@ font-size: 16px;
 
 <div class="sidebar-menu">
 <a href="#mapa">Localização</a>
-<a href="#panorama">Panorama</a>
 <a href="#populacao">População</a>
 <!--a href="#historico">Histórico</a !-->
 <a href="#economia">Economia</a>
@@ -413,6 +412,7 @@ font-size: 16px;
 <a href="#osc">Organização da Sociedade Civil</a>
 <a href="#coop">Cooperativas da Agricultura Familiar na Bahia</a>
 <a href="#ranking">Ranking Bahia</a>
+<a href="#panorama">Panorama</a>
 <hr class="linha-menu">
 
 </div>
@@ -446,53 +446,6 @@ font-size: 16px;
 </div>
 
 
-<div id="panorama" class="section">
-
-<h2>Panorama</h2>
-
-<div class="cards">
-
-<div class="card">
-<b>População <span class="ano"> (2022)</span></b>
-<p>19.243 habitantes</p>
-<p class="uf">14.141.626 habitantes (BA)</p>
-<span class="ano">Fonte: IBGE</span></b>
-</div>
-
-<div class="card">
-<b>Área territorial</b>
-<p>1.544,988 km²</p>
-<p class="uf">564.760,429 km² (BA)</p>
-<span class="ano">Fonte: IBGE</span></b>
-</div>
-
-<div class="card">
-<b>PIB <span class="ano"> (2023)</span></b>
-<p>R$318.032,238</p>
-<p class="uf">R$ 430.987.853,108  (BA)</p>
-<span class="ano">Fonte: IBGE</span></b>
-</div>
-</div>
-
-<div class="cards">
-
-<div class="card">
-<b>IDHM <span class="ano"> (2010)</span></b>
-<p>0,560</p>
-<span class="ano">Fonte: IBGE</span></b>
-</div>
-
-
-<div class="card">
-<b>IFDM 2025  <span class="ano"> (2023)</span></b>
-<p>0,4876</p>
-<span class="ano">Fonte: Firjan</span></b>
-</div>
-
-
-</div>
-
-</div>
 
 
 <div id="populacao" class="section">
@@ -583,6 +536,12 @@ font-size: 16px;
 </div>
 
 <div class="cards">
+<div class="card">
+<b>Quantidade de bolsa bolsa familia <span class="ano"> (2014)</span></b>
+<p>3.472 famílias beneficiárias</p>
+<p class="uf">1.836.209 famílias beneficiárias (BA)</p>
+<span class="ano">Fonte: Ministério do Desenvolvimento Social</span></b>
+</div>
 
 <div class="card">
 <b>Quantidade de bolsa bolsa familia <span class="ano"> (2025)</span></b>
@@ -592,12 +551,11 @@ font-size: 16px;
 </div>
 
 <div class="card">
-<b>Quantidade de bolsa bolsa familia <span class="ano"> (2014)</span></b>
-<p>3.472 famílias beneficiárias</p>
-<p class="uf">1.836.209 famílias beneficiárias (BA)</p>
-<span class="ano">Fonte: Ministério do Desenvolvimento Social</span></b>
+<b>Taxa de bolsa bolsa familia <span class="ano"> (2025)</span></b>
+<p>21,3% da população</p>
+<p class="uf">15,5% da população (BA)</p>
+<span class="ano">Fonte: Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome</span></b>
 </div>
-
 
 </div>
 
@@ -687,6 +645,7 @@ font-size: 16px;
 
 </table>
 </div>
+<span class="ano">Fonte: RAIS</span></b>
 
 </div>
 
@@ -830,12 +789,16 @@ font-size: 16px;
 <!--h3>Detalhamento por finalidade</h3 !-->
 <div class="filters linha-filtro">
 
+
 <select id="filtroAtividade">
   <option value="todos">Todas as atividades</option>
+  <option value="Agrícola">Agrícola</option>
+  <option value="Comércio">Comércio</option>
   <option value="Industrial">Industrial</option>
-  <option value="Não industrial">Não industrial</option>
+  <option value="Infraestrutura">Infraestrutura</option>
+  <option value="Pecuária">Pecuária</option>
+  <option value="Serviços">Serviços</option>
 </select>
-
 </div>
 
 <div class="tabela-scroll">
@@ -1079,7 +1042,7 @@ font-size: 16px;
 <div class="card">
 <b>Mortalidade Infantil <span class="ano"> (2023)</span></b>
 <p>15,15 óbitos por mil nascidos vivos</p>
-<p class="uf">15,15 óbitos por mil nascidos vivos</p>
+<p class="uf">14,15 óbitos por mil nascidos vivos (BA)</p>
 <span class="ano">Fonte: DATASUS -SIM</span></b>
 </div>
 
@@ -1305,6 +1268,7 @@ font-size: 16px;
         <tbody></tbody>
       </table>
     </div>
+<span class="ano">Fonte: SEAGRI</span></b>
   </div>
 
 </div>
@@ -1398,6 +1362,54 @@ font-size: 16px;
 
 </div>
 
+<div id="panorama" class="section">
+
+<h2>Panorama</h2>
+
+<div class="cards">
+
+<div class="card">
+<b>População <span class="ano"> (2022)</span></b>
+<p>19.243 habitantes</p>
+<p class="uf">14.141.626 habitantes (BA)</p>
+<span class="ano">Fonte: IBGE</span></b>
+</div>
+
+<div class="card">
+<b>Área territorial</b>
+<p>1.544,988 km²</p>
+<p class="uf">564.760,429 km² (BA)</p>
+<span class="ano">Fonte: IBGE</span></b>
+</div>
+
+<div class="card">
+<b>PIB <span class="ano"> (2023)</span></b>
+<p>R$318.032,238</p>
+<p class="uf">R$ 430.987.853,108  (BA)</p>
+<span class="ano">Fonte: IBGE</span></b>
+</div>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<b>IDHM <span class="ano"> (2010)</span></b>
+<p>0,560</p>
+<span class="ano">Fonte: IBGE</span></b>
+</div>
+
+
+<div class="card">
+<b>IFDM 2025  <span class="ano"> (2023)</span></b>
+<p>0,4876</p>
+<span class="ano">Fonte: Firjan</span></b>
+</div>
+
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -1454,71 +1466,154 @@ font-size: 16px;
 
 <script id="dadosCoop" type="application/json">
 [
-{"territorio":"Portal do Sertão","nome":"ASSOCIAÇÃO DE DESENVOLVIMENTO COMUNITÁRIO RURAL DO TEIRÚ","descricao":"Frango caipira e congelado","contato":"Teiru, Conceição da Feira/BA","municipio":"Conceição da Feira","lat":-12.51,"lon":-38.99},
+{"territorio":"Portal do Sertão","nome":"ASSOCIAÇÃO DE DESENVOLVIMENTO COMUNITÁRIO RURAL DO TEIRÚ E ADJACÊNCIAS","descricao":"Frango caipira congelado 6kg; Frango congelado 6kg","contato":"Povoado do Teiru, Conceição da Feira/BA | coopafac@hotmail.com","municipio":"Conceição da Feira","lat":-12.51,"lon":-38.99},
 
-{"territorio":"Portal do Sertão","nome":"ASSOCIAÇÃO DOS PRODUTORES GOV. JOÃO DURVAL","descricao":"Sequilhos, farinha e camarão seco","contato":"Feira de Santana/BA","municipio":"Feira de Santana","lat":-12.27,"lon":-38.96},
+{"territorio":"Portal do Sertão","nome":"ASSOCIACAO DOS PRODUTORES RURAIS E PESCADORES DO DISTRITO GOVERNADOR JOAO DURVAL CARNEIRO","descricao":"Sequilhos diversos; farinha; camarão seco","contato":"Feira de Santana/BA | carvalho.jurandy@yahoo.com.br","municipio":"Feira de Santana","lat":-12.27,"lon":-38.96},
 
-{"territorio":"Metropolitano de Salvador","nome":"ASSOCIAÇÃO SOL NASCENTE","descricao":"Temperos diversos","contato":"Vera Cruz/BA","municipio":"Vera Cruz","lat":-12.96,"lon":-38.61},
+{"territorio":"Metropolitano de Salvador","nome":"ASSOCIAÇÃO SOL NASCENTE","descricao":"Temperos diversos (carne, galinha, peixe, alho, churrasco)","contato":"Vera Cruz/BA | orgsolnascente@hotmail.com","municipio":"Vera Cruz","lat":-12.96,"lon":-38.61},
 
-{"territorio":"Metropolitano de Salvador","nome":"COOPERATIVA REPESCAR","descricao":"Mariscos e pescados","contato":"Vera Cruz/BA","municipio":"Vera Cruz","lat":-12.96,"lon":-38.61},
+{"territorio":"Metropolitano de Salvador","nome":"COOPERATIVA REPESCAR","descricao":"Pescados e mariscos (siri, sururu, ostra, peixe)","contato":"Vera Cruz/BA | cooperativarepescar@hotmail.com","municipio":"Vera Cruz","lat":-12.96,"lon":-38.61},
 
-{"territorio":"Metropolitano de Salvador","nome":"COOMAS","descricao":"Mariscos","contato":"Salinas da Margarida/BA","municipio":"Salinas da Margarida","lat":-12.87,"lon":-38.76},
+{"territorio":"Metropolitano de Salvador","nome":"COOMAS","descricao":"Mariscos diversos","contato":"Salinas da Margarida/BA | cooamas@hotmail.com","municipio":"Salinas da Margarida","lat":-12.87,"lon":-38.76},
 
-{"territorio":"Bacia do Jacuípe","nome":"COCAL","descricao":"Leite em pó","contato":"Capela do Alto Alegre/BA","municipio":"Capela do Alto Alegre","lat":-11.66,"lon":-39.83},
+{"territorio":"Bacia do Jacuípe","nome":"COCAL","descricao":"Leite em pó (integral e desnatado)","contato":"Capela do Alto Alegre/BA | cocalcapela@hotmail.com","municipio":"Capela do Alto Alegre","lat":-11.66,"lon":-39.83},
 
-{"territorio":"Bacia do Jacuípe","nome":"COOAP","descricao":"Caprinos e ovinos","contato":"Pintadas/BA","municipio":"Pintadas","lat":-11.82,"lon":-39.91},
+{"territorio":"Bacia do Jacuípe","nome":"COOAP","descricao":"Caprinos e ovinos (cortes especiais)","contato":"Pintadas/BA | cooap@yahoo.com.br","municipio":"Pintadas","lat":-11.82,"lon":-39.91},
 
-{"territorio":"Chapada Diamantina","nome":"COOPAMA","descricao":"Cachaça","contato":"Abaíra/BA","municipio":"Abaíra","lat":-13.25,"lon":-41.66},
+{"territorio":"Chapada Diamantina","nome":"COOPAMA","descricao":"Cachaça e derivados","contato":"Abaíra/BA","municipio":"Abaíra","lat":-13.25,"lon":-41.66},
 
 {"territorio":"Chapada Diamantina","nome":"COOPAGRIL","descricao":"Feijão e morango","contato":"Morro do Chapéu/BA","municipio":"Morro do Chapéu","lat":-11.55,"lon":-41.16},
 
-{"territorio":"Chapada Diamantina","nome":"COOPERBIO","descricao":"Café orgânico","contato":"Seabra/BA","municipio":"Seabra","lat":-12.42,"lon":-41.77},
+{"territorio":"Chapada Diamantina","nome":"COOPERBIO","descricao":"Café orgânico","contato":"Seabra/BA | cooperbio.biodinamicos@gmail.com","municipio":"Seabra","lat":-12.42,"lon":-41.77},
 
-{"territorio":"Sisal","nome":"APAEB","descricao":"Leite de cabra e sisal","contato":"Valente/BA","municipio":"Valente","lat":-11.41,"lon":-39.46},
+{"territorio":"Sisal","nome":"APAEB","descricao":"Leite de cabra e derivados; produtos de sisal","contato":"Valente/BA | gerenciacomercial@apaeb.com.br","municipio":"Valente","lat":-11.41,"lon":-39.46},
 
-{"territorio":"Sisal","nome":"COOAMEL","descricao":"Mel","contato":"Serrinha/BA","municipio":"Serrinha","lat":-11.66,"lon":-39.01},
+{"territorio":"Sisal","nome":"COOAMEL","descricao":"Mel e derivados","contato":"Serrinha/BA | cooamel@yahoo.com.br","municipio":"Serrinha","lat":-11.66,"lon":-39.01},
 
-{"territorio":"Sisal","nome":"COOPERAGIL","descricao":"Beiju e polpas","contato":"Ichu/BA","municipio":"Ichu","lat":-11.75,"lon":-39.19},
+{"territorio":"Sisal","nome":"COOPERAGIL","descricao":"Beiju, farinha e polpas","contato":"Ichu/BA | cooperagil@hotmail.com","municipio":"Ichu","lat":-11.75,"lon":-39.19},
 
 {"territorio":"Sisal","nome":"ASSOCIAÇÃO BASTIANENSE","descricao":"Beiju e farinha","contato":"Retirolândia/BA","municipio":"Retirolândia","lat":-11.48,"lon":-39.43},
 
-{"territorio":"Sisal","nome":"COOPERLAD","descricao":"Produção agrícola","contato":"Tucano/BA","municipio":"Tucano","lat":-10.96,"lon":-38.79},
+{"territorio":"Sisal","nome":"COOPERLAD","descricao":"Produção agrícola familiar","contato":"Tucano/BA | cooperlad@gmail.com","municipio":"Tucano","lat":-10.96,"lon":-38.79},
 
-{"territorio":"Baixo Sul","nome":"COOPALM","descricao":"Palmito","contato":"Ituberá/BA","municipio":"Ituberá","lat":-13.73,"lon":-39.15},
+{"territorio":"Baixo Sul","nome":"COOPALM","descricao":"Palmito e derivados","contato":"Ituberá/BA","municipio":"Ituberá","lat":-13.73,"lon":-39.15},
 
-{"territorio":"Baixo Sul","nome":"COOPRAP","descricao":"Artesanato piaçava","contato":"Nilo Peçanha/BA","municipio":"Nilo Peçanha","lat":-13.60,"lon":-39.10},
+{"territorio":"Baixo Sul","nome":"COOPRAP","descricao":"Artesanato em piaçava","contato":"Nilo Peçanha/BA","municipio":"Nilo Peçanha","lat":-13.60,"lon":-39.10},
 
-{"territorio":"Baixo Sul","nome":"COOFAVA","descricao":"Guaraná e dendê","contato":"Valença/BA","municipio":"Valença","lat":-13.37,"lon":-39.07},
+{"territorio":"Baixo Sul","nome":"COOFAVA","descricao":"Guaraná, dendê e especiarias","contato":"Valença/BA","municipio":"Valença","lat":-13.37,"lon":-39.07},
 
 {"territorio":"Piemonte do Paraguaçu","nome":"COOPAITA","descricao":"Frutas desidratadas","contato":"Itaberaba/BA","municipio":"Itaberaba","lat":-12.53,"lon":-40.31},
 
-{"territorio":"Velho Chico","nome":"COOPAMESF","descricao":"Mel","contato":"Ibotirama/BA","municipio":"Ibotirama","lat":-12.18,"lon":-43.22},
+{"territorio":"Velho Chico","nome":"COOPAMESF","descricao":"Mel e derivados","contato":"Ibotirama/BA","municipio":"Ibotirama","lat":-12.18,"lon":-43.22},
 
 {"territorio":"Extremo Sul","nome":"APIEXSU","descricao":"Apicultura","contato":"Teixeira de Freitas/BA","municipio":"Teixeira de Freitas","lat":-17.54,"lon":-39.74},
 
-{"territorio":"Piemonte da Diamantina","nome":"COOPES","descricao":"Licuri","contato":"Capim Grosso/BA","municipio":"Capim Grosso","lat":-11.38,"lon":-40.01},
+{"territorio":"Piemonte da Diamantina","nome":"COOPES","descricao":"Licuri e derivados","contato":"Capim Grosso/BA","municipio":"Capim Grosso","lat":-11.38,"lon":-40.01},
 
-{"territorio":"Médio Rio de Contas","nome":"COOPROAF","descricao":"Polpas e doces","contato":"Manoel Vitorino/BA","municipio":"Manoel Vitorino","lat":-14.15,"lon":-40.23},
+{"territorio":"Médio Rio de Contas","nome":"COOPROAF","descricao":"Polpas, doces e derivados de umbu","contato":"Manoel Vitorino/BA","municipio":"Manoel Vitorino","lat":-14.15,"lon":-40.23},
 
 {"territorio":"Sertão Produtivo","nome":"ASSOCIAÇÃO CAMPO SECO","descricao":"Produção rural","contato":"Brumado/BA","municipio":"Brumado","lat":-14.20,"lon":-41.66},
 
-{"territorio":"Litoral Sul","nome":"COOPAFS","descricao":"Cacau","contato":"Itabuna/BA","municipio":"Itabuna","lat":-14.79,"lon":-39.28},
+{"territorio":"Litoral Sul","nome":"COOPAFS","descricao":"Cacau e derivados","contato":"Itabuna/BA","municipio":"Itabuna","lat":-14.79,"lon":-39.28},
 
-{"territorio":"Vitória da Conquista","nome":"COOPASUB","descricao":"Farinha e biscoitos","contato":"Vitória da Conquista/BA","municipio":"Vitória da Conquista","lat":-14.86,"lon":-40.84},
+{"territorio":"Vitória da Conquista","nome":"COOPASUB","descricao":"Farinha, biscoitos e derivados","contato":"Vitória da Conquista/BA","municipio":"Vitória da Conquista","lat":-14.86,"lon":-40.84},
 
-{"territorio":"Vale do Jiquiriça","nome":"COOAMA","descricao":"Hortaliças","contato":"Amargosa/BA","municipio":"Amargosa","lat":-13.03,"lon":-39.60},
+{"territorio":"Vale do Jiquiriça","nome":"COOAMA","descricao":"Hortaliças e produtos agrícolas","contato":"Amargosa/BA","municipio":"Amargosa","lat":-13.03,"lon":-39.60},
 
-{"territorio":"Sertão do São Francisco","nome":"COOPERCUC","descricao":"Doces de umbu","contato":"Uauá/BA","municipio":"Uauá","lat":-9.83,"lon":-39.48},
+{"territorio":"Sertão do São Francisco","nome":"COOPERCUC","descricao":"Doces e derivados de umbu","contato":"Uauá/BA","municipio":"Uauá","lat":-9.83,"lon":-39.48},
 
-{"territorio":"Semiárido Nordeste II","nome":"CECOAPI","descricao":"Mel","contato":"Ribeira do Pombal/BA","municipio":"Ribeira do Pombal","lat":-10.83,"lon":-38.53},
+{"territorio":"Semiárido Nordeste II","nome":"CECOAPI","descricao":"Mel e derivados","contato":"Ribeira do Pombal/BA","municipio":"Ribeira do Pombal","lat":-10.83,"lon":-38.53},
 
 {"territorio":"Recôncavo","nome":"APORBA","descricao":"Produtos orgânicos","contato":"Conceição do Almeida/BA","municipio":"Conceição do Almeida","lat":-12.78,"lon":-39.17},
 
 {"territorio":"Litoral Norte e Agreste Baiano","nome":"COOPEALNOR","descricao":"Frutas cítricas","contato":"Rio Real/BA","municipio":"Rio Real","lat":-11.48,"lon":-37.94},
 
-{"territorio":"Irecê","nome":"COOPIRECÊ","descricao":"Grãos","contato":"Irecê/BA","municipio":"Irecê","lat":-11.30,"lon":-41.86},
+{"territorio":"Irecê","nome":"COOPIRECÊ","descricao":"Grãos e derivados","contato":"Irecê/BA","municipio":"Irecê","lat":-11.30,"lon":-41.86},
 
-{"territorio":"Costa do Descobrimento","nome":"COOPEXSULBA","descricao":"Especiarias, frutas e derivados da mandioca","contato":"Eunápolis/BA, ju_assovale@hotmail.com","municipio":"Eunápolis","lat":-16.37,"lon":-39.58}
+{"territorio":"Costa do Descobrimento","nome":"COOPEXSULBA","descricao":"Especiarias, frutas e derivados da mandioca","contato":"Eunápolis/BA","municipio":"Eunápolis","lat":-16.37,"lon":-39.58},
+
+
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"COOPERATIVA DE PRODUÇÃO DA REGIÃO DO PIEMONTE DA DIAMANTINA - COOPES",
+  "descricao":"Azeite de licuri; farinha de licuri; biscoitos; licuri torrado",
+  "contato":"Av Ailton Sena, 731, Capim Grosso/BA | josa.alves@ig.com.br",
+  "municipio":"Capim Grosso",
+  "lat":-11.380,
+  "lon":-40.013
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"COOPERATIVA DE PRODUÇÃO AGROPECUÁRIA DE JILÓ E REGIÃO LTDA - COOPAG",
+  "descricao":"Iogurtes e polpas de frutas",
+  "contato":"Povoado de Jiló, Várzea Nova/BA | coopag.jilo2004@gmail.com",
+  "municipio":"Várzea Nova",
+  "lat":-11.255,
+  "lon":-41.040
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"Cooperativa Agrícola Mista do Estado da Bahia - COOPERBAHIA",
+  "descricao":"Licuri e derivados",
+  "contato":"Praça Raimundo da Paixão s/n - Umburanas/BA | mendes.cooperbahia@gmail.com",
+  "municipio":"Umburanas",
+  "lat":-10.335,
+  "lon":-41.323
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"C.M.A.C.D – Associação Comunitaria dos Moradores e Agricultores de Cocho de Dentro",
+  "descricao":"Produção rural comunitária",
+  "contato":"Povoado Cocho de Dentro, Jacobina/BA | associacao.cochodedentro@gmail.com",
+  "municipio":"Jacobina",
+  "lat":-11.181,
+  "lon":-40.512
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"Cooperativa Mista Agropecuaria de Ourolandia Ltda (Coomao)",
+  "descricao":"Atividades de apoio à pecuária não especificadas anteriormente",
+  "contato":"Rua Gilberto Miranda, 5 - Centro, Ourolândia/BA | CNPJ: 34.347.138/0001-83",
+  "municipio":"Ourolândia",
+  "lat":-10.7085,
+  "lon":-41.3212
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"Cooperativa de Trabalho dos Mineradores de Pequena Escala de Ourolandia e Regiao (Coompor)",
+  "descricao":"Atividades de apoio à extração de minerais não metálicos",
+  "contato":"BA 368 Km 400 - Ourolândia/BA | CNPJ: 08.981.444/0001-67",
+  "municipio":"Ourolândia",
+  "lat":-10.7250,
+  "lon":-41.3005
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"Cooperativa dos Avicultores e Apicultores do Piemonte da Diamantina (Cooapis)",
+  "descricao":"Comércio atacadista de aves vivas e ovos",
+  "contato":"Comunidade de Gitirana - Ourolândia/BA | CNPJ: 44.858.840/0001-65",
+  "municipio":"Ourolândia",
+  "lat":-10.6902,
+  "lon":-41.3408
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"Cooperativa Mista Agropecuaria Sao Bento Ltda (Coopsb)",
+  "descricao":"Preparação do leite",
+  "contato":"Povoado São Bento - Ourolândia/BA | CNPJ: 44.464.639/0001-01",
+  "municipio":"Ourolândia",
+  "lat":-10.7356,
+  "lon":-41.3550
+},
+{
+  "territorio":"Piemonte da Diamantina",
+  "nome":"Cooperativa de Trabalho de Extracao de Marmore (Coombege)",
+  "descricao":"Extração de mármore e beneficiamento associado",
+  "contato":"Av. do Cruzeiro, 375 - Centro - Ourolândia/BA | CNPJ: 24.977.864/0001-26",
+  "municipio":"Ourolândia",
+  "lat":-10.7068,
+  "lon":-41.3189
+}
 ]
 </script>
 
@@ -13060,94 +13155,6 @@ font-size: 16px;
 ]
 </script>
 
-<script id="dadosSetor" type="application/json">
-[
-{"setor":"Aparelh. de placas e exec. de trab. em márm., granito, ardósia e outras pedras","valor":2295000.00},
-{"setor":"Aluguel de outras máq.equip.com.ind.não especific.anteriormente, s/operador","valor":2189470.00},
-{"setor":"Moveis","valor":788832.00},
-{"setor":"Comercio Atacadista de Aparelhos Eletrônicos de Uso Pessoal e Domésticos","valor":497613.74},
-{"setor":"Criação de bovinos para leite","valor":462928.00},
-{"setor":"Roupas/agasalhos e pecas vestuario","valor":448349.08},
-{"setor":"Serviços de reboque de veiculos","valor":400500.00},
-{"setor":"Cosmeticos e prod.perfumaria","valor":154837.38},
-{"setor":"Criação de bovinos para corte","valor":121400.00},
-{"setor":"Restaurantes e Similares","valor":98300.59},
-{"setor":"Carnes - Acougues","valor":92694.69},
-{"setor":"Bebidas","valor":90331.5},
-{"setor":"Mercearia,exceto lojas de conveniencia(merc.em geral, com predominio pro","valor":86179.15},
-{"setor":"Confecção, sob medida, de peças do vestuário, exceto roupas íntimas","valor":70804.75},
-{"setor":"Comercio varejista de artigos de cama, mesa e banho","valor":64427.08},
-{"setor":"Lanchonetes, casas de chá, de sucos e similares","valor":60720.07},
-{"setor":"Ovinocultura","valor":58585.65},
-{"setor":"Bares e outros estab. Espec. em servir bebidas, sem entretenimento","valor":57760.45},
-{"setor":"Caprinocultura","valor":52000.00},
-{"setor":"Cabeleireiros, manicure e pedicure","valor":45017.72},
-{"setor":"Comércio a varejo de peças e acessórios novos para veículos automotores","valor":43979.57},
-{"setor":"Supermercados(merc.em geral, com predominio de prod. alimenticios","valor":38262.26},
-{"setor":"Artigos plastico p/uso dom.e pessoal","valor":36956.51},
-{"setor":"Confeitaria, casas de cha, doces e salgados","valor":33296.44},
-{"setor":"Mamona","valor":30104.81},
-{"setor":"Suinocultura","valor":30000.00},
-{"setor":"Obras de alvenaria","valor":27785.94},
-{"setor":"Cosmeticos","valor":27612.16},
-{"setor":"Prod.Perfumaria","valor":27202.08},
-{"setor":"Produtos Hortifrutigranjeiros","valor":25928.75},
-{"setor":"Comércio varejista de materiais hidraulicos","valor":25485.59},
-{"setor":"Motocicleta, peças e acess.","valor":24565.54},
-{"setor":"Atividades de sonorização e de iluminação","valor":24172.19},
-{"setor":"Ensino médio","valor":22714.58},
-{"setor":"Estivas e Cereais","valor":22559.95},
-{"setor":"Obras de acabamento em gesso e estuque","valor":19812.62},
-{"setor":"Pedras p/construcao, marmore, granito e ou","valor":19560.73},
-{"setor":"Comércio varejista de calçados","valor":17446.74},
-{"setor":"Produtos alimentares Beneficiados","valor":16920.97},
-{"setor":"Bijouterias","valor":15945.93},
-{"setor":"Fab.outros artefat. e prod. concreto,cimento,fibrocimento,gesso e mt.semelhantes","valor":15646.96},
-{"setor":"Educação infantil - pré-escola","valor":15564.56},
-{"setor":"Lojas de variedades, exceto lojas de departamentos ou magazines","valor":14280},
-{"setor":"Padaria e confeitaria com predominância de produção própria","valor":13395.74},
-{"setor":"Confec de peças de vest. , exceto roupas íntimas e as confec. sob medida","valor":13391.43},
-{"setor":"Fab. de Gelo","valor":12706.43},
-{"setor":"Serviços combinados de escritório e apoio administrativo","valor":12057.94},
-{"setor":"Telefonia móvel celular","valor":11660.00},
-{"setor":"Computação gráfica para publicidade","valor":9549.92},
-{"setor":"Doces, balas, bombons, confeitos e semelhantes","valor":9006.80},
-{"setor":"Comércio varejista de artigos de papelaria","valor":9000.00},
-{"setor":"Gas liquefeito de petroleo (GLP)","valor":9000.00},
-{"setor":"Comércio varejista especializado de equipamentos de telefonia e comunicação","valor":8579.74},
-{"setor":"Transporte rodoviário de cargas, em geral","valor":8409.04},
-{"setor":"Serviços de borracheiros e gomaria","valor":8354.07},
-{"setor":"Bares e outros estabel.especif.em servir bebidas, com entretenimento","valor":8067.63},
-{"setor":"Atividades de fisioterapia","valor":8000.00},
-{"setor":"Com. de sorvetes (sorveteria)","valor":8000.00},
-{"setor":"Comércio atacadista de pães, bolos, biscoitos e similares","valor":7887.37},
-{"setor":"Padaria e confeitaria com predominânica de revenda","valor":7228.31},
-{"setor":"Comércio varejista de suvenires, bijuterias e artesanatos","valor":6940.62},
-{"setor":"Seguridade social","valor":6607.56},
-{"setor":"Comércio varejista de artigos do vestuário e acessórios","valor":6281.50},
-{"setor":"Comércio varejista de embalagens em geral (exceto de papel e papelão)","valor":5774.61},
-{"setor":"Comércio varejista de produtos saneantes - domissanitarios","valor":5534.34},
-{"setor":"Outras obras de acabamento da construção","valor":5450.90},
-{"setor":"Atividades de apoio à educação, exceto caixas escolares","valor":5235.04},
-{"setor":"Reparação e manut. de equipam. eletroeletrônicos de uso pessoal e doméstico","valor":5194.88},
-{"setor":"Comércio varej. Especializ. de eletrodom. e equipam. de áudio e vídeo","valor":5000.00},
-{"setor":"Prod. Farmaceuticos Naturais","valor":5000.00},
-{"setor":"Bovinocultura","valor":4900.50},
-{"setor":"Comércio varejista de vidros","valor":4829.81},
-{"setor":"Serviços de usinagem, tornearia e solda","valor":3984.71},
-{"setor":"Serv. de consultoria em mecanica","valor":3953.33},
-{"setor":"Comércio Varejista de Ferragens e Ferramentas","valor":3928.80},
-{"setor":"Comércio Varejista de Materiais de Construção Não Especi. Anteriormente","valor":3723.15},
-{"setor":"Prod.Distrib.Gas(por tubulacoes)","valor":3718.59},
-{"setor":"Frios, carnes, frutas e verduras","valor":3332.89},
-{"setor":"Calcados","valor":3070.48},
-{"setor":"Carga e descarga","valor":2659.77},
-{"setor":"Instalação e manutenção elétrica","valor":2120.00},
-{"setor":"Serviços de tatuagem e colocação de piercing","valor":1917.00},
-{"setor":"Ferragens","valor":1552.23},
-{"setor":"Comércio varejista de laticínios e frios","valor":1146.86}
-]
-</script>
 
 
 
@@ -13554,6 +13561,63 @@ plugins:[ChartDataLabels]
 
 
 /* gráfico SETORES */
+const dadosSetor = [
+  {setor:"Agrícola", atividade:"Criação de bovinos para corte", valor:24000},
+  {setor:"Agrícola", atividade:"Mamona", valor:26000},
+
+  {setor:"Comércio", atividade:"Móveis", valor:788832},
+
+  {setor:"Industrial", atividade:"Aparelhamento de placas e trabalhos em mármore e granito", valor:2295000},
+
+  {setor:"Infraestrutura", atividade:"Aluguel de máquinas e equipamentos industriais", valor:1797970},
+
+  {setor:"Pecuária", atividade:"Caprinocultura", valor:52000},
+  {setor:"Pecuária", atividade:"Criação de bovinos para corte", valor:97400},
+  {setor:"Pecuária", atividade:"Criação de bovinos para leite", valor:459535},
+  {setor:"Pecuária", atividade:"Ovinocultura", valor:55000},
+  {setor:"Pecuária", atividade:"Suinocultura", valor:30000},
+
+  {setor:"Serviços", atividade:"Aluguel de máquinas e equipamentos", valor:391500},
+  {setor:"Serviços", atividade:"Artigos plásticos domésticos", valor:36956.51},
+  {setor:"Serviços", atividade:"Apoio à educação", valor:5235.04},
+  {setor:"Serviços", atividade:"Fisioterapia", valor:8000},
+  {setor:"Serviços", atividade:"Sonorização e iluminação", valor:24172.19},
+  {setor:"Serviços", atividade:"Bares sem entretenimento", valor:57760.45},
+  {setor:"Serviços", atividade:"Bares com entretenimento", valor:8067.63},
+  {setor:"Serviços", atividade:"Bebidas", valor:90331.50},
+  {setor:"Serviços", atividade:"Bijouterias", valor:15945.93},
+  {setor:"Serviços", atividade:"Cabeleireiros", valor:45017.72},
+  {setor:"Serviços", atividade:"Carnes - Açougues", valor:92694.69},
+  {setor:"Serviços", atividade:"Sorveteria", valor:8000},
+  {setor:"Serviços", atividade:"Peças automotivas", valor:43979.57},
+  {setor:"Serviços", atividade:"Comércio atacadista eletrônicos", valor:497613.74},
+  {setor:"Serviços", atividade:"Comércio varejista cama/mesa/banho", valor:64427.08},
+  {setor:"Serviços", atividade:"Vestuário e acessórios", valor:6281.50},
+  {setor:"Serviços", atividade:"Calçados", valor:17446.74},
+  {setor:"Serviços", atividade:"Materiais de construção", valor:3723.15},
+  {setor:"Serviços", atividade:"Materiais hidráulicos", valor:25485.59},
+  {setor:"Serviços", atividade:"Cosméticos", valor:154837.38},
+  {setor:"Serviços", atividade:"Confecção de roupas", valor:70804.75},
+  {setor:"Serviços", atividade:"Confeitaria", valor:33296.44},
+  {setor:"Serviços", atividade:"Educação infantil", valor:15564.56},
+  {setor:"Serviços", atividade:"Ensino médio", valor:22714.58},
+  {setor:"Serviços", atividade:"Gelo", valor:12706.43},
+  {setor:"Serviços", atividade:"Lanchonetes", valor:60720.07},
+  {setor:"Serviços", atividade:"Mercearias", valor:86179.15},
+  {setor:"Serviços", atividade:"Motocicletas e peças", valor:24565.54},
+  {setor:"Serviços", atividade:"Obras de alvenaria", valor:27785.94},
+  {setor:"Serviços", atividade:"Padaria", valor:13395.74},
+  {setor:"Serviços", atividade:"Produtos hortifrutigranjeiros", valor:25928.75},
+  {setor:"Serviços", atividade:"Restaurantes", valor:98300.59},
+  {setor:"Serviços", atividade:"Vestuário (roupas)", valor:448349.08},
+  {setor:"Serviços", atividade:"Serviços administrativos", valor:12057.94},
+  {setor:"Serviços", atividade:"Borracharia", valor:8354.07},
+  {setor:"Serviços", atividade:"Reboque de veículos", valor:400500},
+  {setor:"Serviços", atividade:"Usinagem e solda", valor:3984.71},
+  {setor:"Serviços", atividade:"Supermercados", valor:38262.26},
+  {setor:"Serviços", atividade:"Telefonia móvel", valor:11660},
+  {setor:"Serviços", atividade:"Transporte de cargas", valor:8409.04}
+];
 
 const setores = [
 ["Serviços",3351972],
@@ -13611,38 +13675,37 @@ plugins:[ChartDataLabels]
 
 /* TABELA SETOR */
 
-/*const dadosSetor = JSON.parse(
-document.getElementById("dadosSetor").textContent
-); */
+function renderTabelaSetor(){
 
-const dadosSetor = JSON.parse(
-  document.getElementById("dadosSetor").textContent
-);
+  const filtro = document.getElementById("filtroAtividade").value;
 
-let tbodySetor = document.querySelector("#tabelaSetor tbody");
-tbodySetor.innerHTML = "";
+  const tbody = document.querySelector("#tabelaSetor tbody");
+  tbody.innerHTML = "";
 
-let totalIndustrial = 0;
+  dadosSetor
+    .filter(d => filtro === "todos" || d.setor === filtro)
+    .forEach(d => {
 
-dadosSetor.forEach(d => {
+      const valorFormatado = d.valor.toLocaleString("pt-BR", {
+        minimumFractionDigits: 2
+      });
 
-  let tipo = isIndustrial(d.setor) ? "Industrial" : "Não industrial";
+      tbody.innerHTML += `
+        <tr>
+          <td>${d.setor}</td>
+          <td>${d.atividade}</td>
+          <td>R$ ${valorFormatado}</td>
+        </tr>
+      `;
+    });
+}
 
-  if (tipo === "Industrial") {
-    totalIndustrial += d.valor;
-  }
+// evento
+document.getElementById("filtroAtividade")
+  .addEventListener("change", renderTabelaSetor);
 
-  tbodySetor.innerHTML += `
-  <tr>
-    <td>${d.setor}</td>
-    <td>${tipo}</td>
-    <td>R$ ${Math.round(d.valor).toLocaleString("pt-BR")}</td>
-  </tr>
-  `;
-});
-
-console.log("Total industrial:", totalIndustrial);
-
+// init
+renderTabelaSetor();
 /* ordenar */
 /*dadosSetor.sort((a,b)=>b.valor-a.valor); */
 /*
