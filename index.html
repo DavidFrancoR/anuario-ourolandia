@@ -374,6 +374,43 @@ font-size: 16px;
   z-index: 2;
 }
 
+
+.tabela-container {
+  margin-top: 20px;
+}
+
+.tabela-bolsa {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.tabela-bolsa th,
+.tabela-bolsa td {
+  border: 1px solid #333;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.tabela-bolsa thead th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.tabela-bolsa tbody td:first-child {
+  text-align: left;
+}
+
+.tabela-bolsa tbody tr:first-child td {
+  font-weight: bold;
+}
+
+.tabela-bolsa td:nth-child(2),
+.tabela-bolsa td:nth-child(3) {
+  color: #777; /* igual ao seu print (cinza BA) */
+}
+
 </style>
 </head>
 
@@ -403,8 +440,8 @@ font-size: 16px;
 <!--a href="#historico">Histórico</a !-->
 <a href="#economia">Economia</a>
 <a href="#panoramaSetorial">Panorama Setorial</a>
-<a href="#financiamento">Financiamento</a>
 <a href="#trabalho">Mercado de Trabalho</a>
+<a href="#financiamento">Financiamento</a>
 <a href="#educacao">Educação</a>
 <a href="#saude">Saúde</a>
 <a href="#ambiente">Meio Ambiente</a>
@@ -469,6 +506,8 @@ font-size: 16px;
 <b>População estimada <span class="ano"> (2025)</span></b>
 <p>20.141 habitantes</p>
 <p class="uf">14.870.907 habitantes (BA)</p>
+<p>Posição na Bahia: 164º</p>
+
 <span class="ano">Fonte: IBGE</span></b>
 </div>
 
@@ -535,7 +574,38 @@ font-size: 16px;
 
 </div>
 
-<div class="cards">
+<div class="tabela-container">
+  <table class="tabela-bolsa">
+    <thead>
+      <tr>
+        <th rowspan="2"></th>
+        <th colspan="2">Qtd. Bolsa Família (Famílias beneficiadas)</th>
+        <th rowspan="2">Participação 2025 (%)</th>
+      </tr>
+      <tr>
+        <th>2014</th>
+        <th>2025</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Ourolândia</b></td>
+        <td>3.472</td>
+        <td>4.284</td>
+        <td><b>21,30%</b></td>
+      </tr>
+      <tr>
+        <td>Bahia</td>
+        <td>1.836.209</td>
+        <td>2.307.844</td>
+        <td>15,50%</td>
+      </tr>
+    </tbody>
+  </table>
+<span class="ano">Fonte: Ministério do Desenvolvimento Social (2014), Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome (2025)</span></b>
+</div>
+
+<!-- div class="cards">
 <div class="card">
 <b>Quantidade de bolsa bolsa familia <span class="ano"> (2014)</span></b>
 <p>3.472 famílias beneficiárias</p>
@@ -557,7 +627,7 @@ font-size: 16px;
 <span class="ano">Fonte: Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome</span></b>
 </div>
 
-</div>
+</div !-->
 
 
 <div class="grid">
@@ -752,6 +822,119 @@ font-size: 16px;
 </div>
 
 
+
+
+<div id="trabalho" class="section">
+
+<h2>Mercado de Trabalho</h2>
+
+<div class="cards">
+
+<div class="card">
+<b>Empregos formais<span class="ano"> (2025)</span></b>
+
+<p>2.092</p>
+<span class="ano">Fonte: RAIS</span></b>
+</div>
+
+<div class="card">
+<b>Salário médio<span class="ano"> (2025)</span></b>
+<p>R$ 1.980</p>
+<span class="ano">Fonte: RAIS</span></b>
+</div>
+
+<div class="card">
+<b>População com renda ≤ 1/2 SM<span class="ano"> (2025)</span></b>
+<p>54%</p>
+<span class="ano">Fonte: CEMPRE</span></b>
+</div>
+
+<div class="card">
+<b>Maior salário<span class="ano"> (2025)</span></b>
+<p>Administração pública</p>
+<span class="ano">Fonte: RAIS</span></b>
+</div>
+</div>
+<div class="cards">
+
+<div class="card">
+<b>Setor com mais empregos<span class="ano"> (2025)</span></b>
+<p>Comércio</p>
+<span class="ano">Fonte: RAIS</span></b>
+</div>
+
+
+</div>
+
+<!-- div class="filters">
+
+<select id="filtroAtividade">
+<option value="all">Atividade econômica</option>
+</select>
+
+</div !-->
+
+<div class="grid">
+
+<div class="chart">
+
+<h3>Média salarial por atividade</h3>
+
+<canvas id="salarioAtividade"></canvas>
+<span class="ano">Fonte: RAIS</span></b>
+
+</div>
+
+<div class="chart">
+
+<h3>Salário médio – homens x mulheres</h3>
+
+<canvas id="salarioGenero"></canvas>
+<span class="ano">Fonte: RAIS</span></b>
+</div>
+
+</div>
+
+<!--div class="chart">
+
+<h3>Setores com maior geração de emprego formal</h3>
+
+<canvas id="empregoSetores"></canvas>
+
+<span class="ano">Fonte: RAIS</span>
+
+</div!-->
+
+
+</div>
+
+<div class="chart">
+
+<h3>Resumo por Atividade</h3>
+
+<div class="tabela-scroll">
+<table id="tabelaEmprego">
+
+<thead>
+<tr>
+<th>Setor</th>
+<th>Emprego (2014)</th>
+<th>Emprego (2024)</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+</div>
+
+<span class="ano">Fonte: RAIS</span>
+
+</div>
+
+
+
+
 <div id="financiamento" class="section">
 
 <h2>Financiamento</h2>
@@ -887,112 +1070,6 @@ font-size: 16px;
 
 
 
-<div id="trabalho" class="section">
-
-<h2>Mercado de Trabalho</h2>
-
-<div class="cards">
-
-<div class="card">
-<b>Empregos formais<span class="ano"> (2025)</span></b>
-
-<p>2.092</p>
-<span class="ano">Fonte: RAIS</span></b>
-</div>
-
-<div class="card">
-<b>Salário médio<span class="ano"> (2025)</span></b>
-<p>R$ 1.980</p>
-<span class="ano">Fonte: RAIS</span></b>
-</div>
-
-<div class="card">
-<b>População com renda ≤ 1/2 SM<span class="ano"> (2025)</span></b>
-<p>54%</p>
-<span class="ano">Fonte: CEMPRE</span></b>
-</div>
-
-<div class="card">
-<b>Maior salário<span class="ano"> (2025)</span></b>
-<p>Administração pública</p>
-<span class="ano">Fonte: RAIS</span></b>
-</div>
-
-<div class="card">
-<b>Setor com mais empregos<span class="ano"> (2025)</span></b>
-<p>Comércio</p>
-<span class="ano">Fonte: RAIS</span></b>
-</div>
-
-
-</div>
-
-<!-- div class="filters">
-
-<select id="filtroAtividade">
-<option value="all">Atividade econômica</option>
-</select>
-
-</div !-->
-
-<div class="grid">
-
-<div class="chart">
-
-<h3>Média salarial por atividade</h3>
-
-<canvas id="salarioAtividade"></canvas>
-<span class="ano">Fonte: RAIS</span></b>
-
-</div>
-
-<div class="chart">
-
-<h3>Salário médio – homens x mulheres</h3>
-
-<canvas id="salarioGenero"></canvas>
-<span class="ano">Fonte: RAIS</span></b>
-</div>
-
-</div>
-
-<!--div class="chart">
-
-<h3>Setores com maior geração de emprego formal</h3>
-
-<canvas id="empregoSetores"></canvas>
-
-<span class="ano">Fonte: RAIS</span>
-
-</div!-->
-
-
-</div>
-
-<div class="chart">
-
-<h3>Resumo por Atividade</h3>
-
-<div class="tabela-scroll">
-<table id="tabelaEmprego">
-
-<thead>
-<tr>
-<th>Setor</th>
-<th>Emprego (2014)</th>
-<th>Emprego (2024)</th>
-</tr>
-</thead>
-
-<tbody></tbody>
-
-</table>
-</div>
-
-<span class="ano">Fonte: RAIS</span>
-
-</div>
-
 <div id="educacao" class="section">
 
 <h2>Educação</h2>
@@ -1009,8 +1086,8 @@ font-size: 16px;
 
 <div class="card">
 <b>IDEB – Anos iniciais do ensino fundamental (Rede pública) <span class="ano"> (2023)</span></b>
-<p>4,1</p>
-<p class="uf">5 (BA)</p>
+<p>4,1/10</p>
+<p class="uf">5/10 (BA)</p>
 <span class="ano">Fonte: INEP</span></b>
 </div>
 
@@ -1099,22 +1176,21 @@ font-size: 16px;
 <div class="card">
 <b>Esgotamento sanitário<span class="ano"> (2022)</span></b>
 <p>19,1%</p>
-<p class="uf">19,1% (BA)</p>
-<p class="uf">10 (BA)</p>
+<p class="uf">52,6% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Arborização urbana<span class="ano"> (2022)</span></b>
 <p>67,6%</p>
-<p class="uf">19,1% (BA)</p>
+<p class="uf">74,3% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Urbanização adequada<span class="ano"> (2022)</span></b>
 <p>0%</p>
-<p class="uf">19,1% (BA)</p>
+<p class="uf">63,1% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
@@ -1127,14 +1203,14 @@ font-size: 16px;
 <div class="card">
 <b>Abastecimento de água<span class="ano"> (2023)</span></b>
 <p>65,1%</p>
-<p class="uf">19,1% (BA)</p>
+<p class="uf">83,7% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
 <div class="card">
 <b>Perdas na distribuição<span class="ano"> (2023)</span></b>
 <p>33,42%</p>
-<p class="uf">19,1% (BA)</p>
+<p class="uf">41,2% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 </div>
@@ -1144,7 +1220,7 @@ font-size: 16px;
 <div class="card">
 <b>Rede de esgoto<span class="ano"> (2023)</span></b>
 <p>28,7%</p>
-<p class="uf">19,1% (BA)</p>
+<p class="uf">41,5% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 
@@ -1152,7 +1228,7 @@ font-size: 16px;
 <div class="card">
 <b>Esgoto tratado<span class="ano"> (2023)</span></b>
 <p>74,3%</p>
-<p class="uf">19,1% (BA)</p>
+<p class="uf">36,8% (BA)</p>
 <span class="ano">Fonte: SNIS</span>
 </div>
 </div>
@@ -1288,22 +1364,22 @@ font-size: 16px;
 
 <div class="card">
 <b>Total de OSCs</b>
-<p>24</p>
-<p class="uf">24 (BA)</p>
+<p>145</p>
+<p class="uf">67.092 (BA)</p>
 <span class="ano">Fonte: Mapa OSC (IPEA)</span></b>
 </div>
 
 <div class="card">
 <b>OSCs Ativas</b>
-<p>15</p>
-<p class="uf">24 (BA)</p>
+<p>105</p>
+<p class="uf">45.828 (BA)</p>
 <span class="ano">Fonte: Mapa OSC (IPEA)</span></b>
 </div>
 
 <div class="card">
 <b>OSCs Inaptas</b>
-<p>9</p>
-<p class="uf">24 (BA)</p>
+<p>40</p>
+<p class="uf">21.264 (BA)</p>
 <span class="ano">Fonte: Mapa OSC (IPEA)</span></b>
 </div>
 
@@ -1400,7 +1476,7 @@ font-size: 16px;
 
 
 <div class="card">
-<b>IFDM 2025  <span class="ano"> (2023)</span></b>
+<b>Índice FIRJAN de Desenvolvimento Municipal 2025  <span class="ano"> (2023)</span></b>
 <p>0,4876</p>
 <span class="ano">Fonte: Firjan</span></b>
 </div>
@@ -1437,30 +1513,741 @@ font-size: 16px;
 
 <script id="dadosOSC" type="application/json">
 [
-{"nome":"Associacao dos produtores agroecologicos assentados (as) e quilombolas do piemonte da diamantina","area":"Rural / Agricultura","cnpj":"54.703.965/0001-70","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao comunit.de varzea de fora","area":"Comunitária","cnpj":"01.534.985/0001-06","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao de desenvolvimento comuni.de casa nova","area":"Comunitária","cnpj":"00.969.489/0001-04","lat":-10.9572,"lon":-41.0719},
-{"nome":"Associacao de desenvolvimento comunitario dos policultores de catarina e regiao","area":"Rural / Agricultura","cnpj":"07.659.207/0001-11","lat":-11.0244,"lon":-41.0947},
-{"nome":"Associacao dos pequenos agricultores do povoado de alagadico e adjacencias do municipio de ourolandia - bahia","area":"Rural / Agricultura","cnpj":"55.008.711/0001-02","lat":-10.9714,"lon":-41.1025},
-{"nome":"Associacao de desenvolvimento e acao social da comunidade de lagoa do 33","area":"Social","cnpj":"02.586.880/0001-55","lat":-10.9853,"lon":-41.0511},
-{"nome":"Igreja evangelica assembleia de deus de lagoa do 33","area":"Religiosa","cnpj":"19.382.637/0001-18","lat":-10.9853,"lon":-41.0511},
-{"nome":"Associacao dos pequenos agricultores da fazenda tres paulistas e adjacencias","area":"Rural / Agricultura","cnpj":"43.348.990/0001-66","lat":-11.0244,"lon":-41.0947},
-{"nome":"Associacao dos produtores organicos de hortalicas da comunidade de joao delmiro","area":"Rural / Agricultura","cnpj":"55.512.435/0001-07","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao comunitaria de desenvolvimento rural de alagadico","area":"Rural / Agricultura","cnpj":"08.819.227/0001-75","lat":-10.9714,"lon":-41.1025},
-{"nome":"Associacao comunitaria dos produtores rurais de manoel domingos e adjacencias","area":"Rural / Agricultura","cnpj":"29.904.721/0001-08","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao comunitaria dos pequenos produtores rurais de casa nova e adjacencias","area":"Rural / Agricultura","cnpj":"30.069.232/0001-67","lat":-10.9572,"lon":-41.0719},
-{"nome":"Associacao comunitaria de agricultores lirios dos vales da cidade de ourolandia e regiao","area":"Rural / Agricultura","cnpj":"42.154.000/0001-96","lat":-10.9986,"lon":-41.0806},
-{"nome":"Ass. comun. dos trab. rurais sem terra de ourolandia e adjacencias","area":"Rural / Agricultura","cnpj":"05.740.871/0001-65","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao dos pequenos produtores rural de nova conquista","area":"Rural / Agricultura","cnpj":"41.116.747/0001-97","lat":-11.0125,"lon":-41.1233},
-{"nome":"Associacao agricola da comunidade de campo alegre e adjacencias","area":"Rural / Agricultura","cnpj":"45.813.564/0001-81","lat":-10.9986,"lon":-41.0806},
-{"nome":"Unidade execultora colegio francisco de assis moreira de sousa","area":"Educação","cnpj":"03.177.902/0001-96","lat":-11.0244,"lon":-41.0947},
-{"nome":"Associacao de desenvolvimento comunt. do bairro salviano inacio rocha","area":"Comunitária","cnpj":"03.256.174/0001-08","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao das/os assentadas e assentados do pa santa luzia","area":"Rural / Agricultura","cnpj":"05.337.512/0001-61","lat":-10.9692,"lon":-41.0358},
-{"nome":"Associacao dos produtores rurais e da agricultura familiar da estrada boiadeira de ourolandia e adjacencias","area":"Rural / Agricultura","cnpj":"61.145.346/0001-72","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao dos criadores de caprinos e ovinos de ourolandia","area":"Rural / Agricultura","cnpj":"07.341.962/0001-53","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao agricola de lagoa33 e adjacencias","area":"Rural / Agricultura","cnpj":"53.532.288/0001-01","lat":-10.9853,"lon":-41.0511},
-{"nome":"Associacao comunitaria dos pequenos produtores rurais do povoado de queimadas e adjacencias","area":"Rural / Agricultura","cnpj":"54.535.263/0001-24","lat":-10.9986,"lon":-41.0806},
-{"nome":"Associacao comunitaria e evangelica de alagadico e adjacencias","area":"Religiosa","cnpj":"03.169.223/0001-75","lat":-10.9714,"lon":-41.1025}
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DAS FAMILIAS E PRODUTORES RURAIS DE ALAGADICO E ADJACENCIAS DO MUNICIPIO DE OUROLANDIA - BAHIA",
+    "area": "Rural / Agricultura",
+    "cnpj": "47085088000155",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "INSTITUTO BRASILEIRO DE FOMENTO AGROINDUSTRIAL RACIONAL DE OVINOCAPRINOCULTURA COMERCIAL",
+    "area": "Comunitária",
+    "cnpj": "3092503000122",
+    "lat": -10.9748911939996,
+    "lon": -41.0877104799996
+  },
+  {
+    "nome": "FUNDACAO CLEUSAGONIA DE SOUZA BARBOSA",
+    "area": "Comunitária",
+    "cnpj": "22038255000186",
+    "lat": -10.9755583169996,
+    "lon": -41.0904207279996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DAS FAMILIAS RURAIS DE ALAGADICO",
+    "area": "Comunitária",
+    "cnpj": "12100108000135",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DE PRODUTORES RURAIS DE LAGOA DO 33",
+    "area": "Rural / Agricultura",
+    "cnpj": "14185049000170",
+    "lat": -10.8500676889996,
+    "lon": -41.3788556849996
+  },
+  {
+    "nome": "ASSOCIACAO DA COMUNIDADE DE VARZEA DE FORA",
+    "area": "Comunitária",
+    "cnpj": "52888362000164",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "ASSOCIACAO DOS AGRICULTORES DE SUBSITENCIA DE CAMPO ALEGRE E REGIAO - 'AASCAR'",
+    "area": "Rural / Agricultura",
+    "cnpj": "53962483000171",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PRODUTORES RURAIS DE ALAGADICO E ADJACIENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "54084602000101",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "PROJETO MENINO MACIEL",
+    "area": "Social",
+    "cnpj": "57929987000140",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO DOS PRODUTORES RURAIS E DA AGRICULTURA FAMILIAR DA ESTRADA BOIADEIRA DE OUROLANDIA E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "61145346000172",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ESCOLA JOSE FELIX DA SILVA",
+    "area": "Educação",
+    "cnpj": "3178322000113",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO COMUNI.DE CASA NOVA",
+    "area": "Comunitária",
+    "cnpj": "969489000104",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO COMUNITARIO DE ALAZAO",
+    "area": "Comunitária",
+    "cnpj": "63090492000173",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "UNIDADE EXECULTORA COLEGIO FRANCISCO DE ASSIS MOREIRA DE SOUSA",
+    "area": "Comunitária",
+    "cnpj": "3177902000196",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ESCOLA FRANCISCO JOSE DA SILVA",
+    "area": "Educação",
+    "cnpj": "3177932000100",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "DIOCESE DE BONFIM",
+    "area": "Comunitária",
+    "cnpj": "13833801002557",
+    "lat": -10.6785925479996,
+    "lon": -41.2855632389996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS AGRICULTORES DA COMUNIDADE DE PAPAGAIO E ADJACENCIAS - APAP",
+    "area": "Rural / Agricultura",
+    "cnpj": "54485142000115",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "ASSOCIACAO DOS AGENTES COMU.DE SAUDE DO MUNIC.DE OUROLANDIA",
+    "area": "Comunitária",
+    "cnpj": "2521139000106",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO AGRICOLA DO ASSENTAMENTO FE EM DEUS",
+    "area": "Rural / Agricultura",
+    "cnpj": "2580054000107",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ESCOLA NECI NOVAES",
+    "area": "Educação",
+    "cnpj": "3177858000114",
+    "lat": -10.9771157939996,
+    "lon": -41.0910842409996
+  },
+  {
+    "nome": "ESCOLA CELINO BARBOSA",
+    "area": "Educação",
+    "cnpj": "3178189000103",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ESCOLA GUSTAVO SOUZA",
+    "area": "Educação",
+    "cnpj": "3178239000144",
+    "lat": -10.8500676889996,
+    "lon": -41.3788556849996
+  },
+  {
+    "nome": "ASS. DE DESENV. AGROPECUARIO DE BAIXA DO ANASTACIO",
+    "area": "Comunitária",
+    "cnpj": "7428502000167",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESEN.COM DO POV S GABRIEL",
+    "area": "Comunitária",
+    "cnpj": "1348928000124",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE PEQUENOS E MEDIOS PRODUTORES RURAIS DO DISTRITO DE LAGOA DO 33",
+    "area": "Rural / Agricultura",
+    "cnpj": "58662772000179",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ESCOLA JOSE SIMPLICIO CERQUEIRA",
+    "area": "Educação",
+    "cnpj": "3178113000170",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ESCOLA ALTINO PEREIRA",
+    "area": "Educação",
+    "cnpj": "3178149000153",
+    "lat": -10.8474909679996,
+    "lon": -41.0298353119996
+  },
+  {
+    "nome": "IGREJA EVANGELICA ASSEMBLEIA DE DEUS",
+    "area": "Religiosa",
+    "cnpj": "3922792000140",
+    "lat": -10.9751489699996,
+    "lon": -41.0915930889996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNIT.DOS PEQUENOS PROD.DE ALAGADICO",
+    "area": "Rural / Agricultura",
+    "cnpj": "534215000192",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO AGRICOLA DE LAGOA33 E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "53532288000101",
+    "lat": -10.83541,
+    "lon": -41.06386
+  },
+  {
+    "nome": "ASSOCIACAO DOS AGRICULTORES RURAIS DO POVOADO DE LAGOA DO 33 DO MUNICIPIO DE OUROLANDIA BAHIA",
+    "area": "Rural / Agricultura",
+    "cnpj": "63085219000150",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO DOS PRODUTORES RURAIS DO MUNICIPIO DE OUROLANDIA E REGIAO - APRMOR",
+    "area": "Rural / Agricultura",
+    "cnpj": "20256514000110",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO COM DE NOVO ACHADO",
+    "area": "Comunitária",
+    "cnpj": "63090385000145",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ESCOLA PEDRO ROMUALDO DA SILVA",
+    "area": "Educação",
+    "cnpj": "1952610000158",
+    "lat": -10.6785925479996,
+    "lon": -41.2855632389996
+  },
+  {
+    "nome": "ESCOLA HAILTON JOSE DE BRITO",
+    "area": "Educação",
+    "cnpj": "1952614000136",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ESCOLA JOSE GERALDO",
+    "area": "Educação",
+    "cnpj": "3178056000129",
+    "lat": -10.9771157939996,
+    "lon": -41.0910842409996
+  },
+  {
+    "nome": "ASSOCIACAO DE PEQUENOS PRODUTORES DO POV.FELIX",
+    "area": "Rural / Agricultura",
+    "cnpj": "3286634000140",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ESCOLA ESTADUAL DE OUROLANDIA",
+    "area": "Educação",
+    "cnpj": "2056039000156",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO AGROPECUARIO DE BAIXAS DE JOSE FELIX (ADAB-JF)",
+    "area": "Comunitária",
+    "cnpj": "41204505000155",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS AGRICULTORES DA FAZENDA TRES PAULISTAS E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "43348990000166",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "LIGA DESPORTIVA DE OUROLANDIA",
+    "area": "Comunitária",
+    "cnpj": "7479527000190",
+    "lat": -10.9735249859996,
+    "lon": -41.0881682879996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DO POVOADO DE GITIRANA",
+    "area": "Comunitária",
+    "cnpj": "13224910000108",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PRODUTORES RURAIS DE MAMONA DA CATARINA E REGIAO",
+    "area": "Rural / Agricultura",
+    "cnpj": "60257843000108",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS PRODUTORES RURAIS DE LAGOA 33 E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "43183852000174",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS AGRICULTORES RURAIS DO POVOADO DE VITORIO E ADJACENCIAS DO MUNICIPIO DE OUROLANDIA - BAHIA",
+    "area": "Rural / Agricultura",
+    "cnpj": "47478396000140",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS EMPREENDEDORES DE MARMORE BEGE BAHIA - ASSOBEGE",
+    "area": "Comunitária",
+    "cnpj": "8807671000170",
+    "lat": -10.8921298959996,
+    "lon": -41.1492878139996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO COMUNITARIO DE LAGOA 33",
+    "area": "Comunitária",
+    "cnpj": "13897608000102",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO NOVO HORIZONTE DOS PEQUENOS AGRICULTORES DO MUNICIPIO DE OUROLANDIA - BA",
+    "area": "Rural / Agricultura",
+    "cnpj": "6152834000107",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMERCIAL E INDUSTRIAL DE OUROLANDIA",
+    "area": "Comunitária",
+    "cnpj": "7662967000188",
+    "lat": -10.9745720689996,
+    "lon": -41.0912873679996
+  },
+  {
+    "nome": "ASS. COMUNIT. DE DESENVOLVIMENTO MISTO AGROP. DE ALAGADICO E ADJACENCIAS",
+    "area": "Comunitária",
+    "cnpj": "3316305000103",
+    "lat": -10.6761612119996,
+    "lon": -41.2857168729996
+  },
+  {
+    "nome": "ASSOCIACAO DESENVOLVIMENTO SOCIAL DOS PEQUENOS AGRICULTORES RURAIS DE BAIXA DE ANASTACIO E ADJECENCIA DO MUNICIPIO DE OUROLANDIA  BAHIA",
+    "area": "Rural / Agricultura",
+    "cnpj": "18947304000126",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS APICULTORES DE OUROLANDIA",
+    "area": "Comunitária",
+    "cnpj": "7550309000102",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS JOVENS RURAIS DO SAO BENTO",
+    "area": "Comunitária",
+    "cnpj": "8505541000183",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COOPERATIVISTA DOS PEQUENOS PRODUTORES RURAIS DO POVOADO DO AURORA",
+    "area": "Rural / Agricultura",
+    "cnpj": "2807178000174",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO COMUNITARIO DOS POLICULTORES DE CATARINA E REGIAO",
+    "area": "Comunitária",
+    "cnpj": "7659207000111",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS ASSENTADOS E ASSENTADAS DO PROJETO DE ASSENTAMENTO VILA NOVA",
+    "area": "Social",
+    "cnpj": "9414037000130",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "IGREJA ASSEMBLEIA DE DEUS MONTE DA FE - MISSAO BELEM",
+    "area": "Religiosa",
+    "cnpj": "16660382000110",
+    "lat": -10.6750687609996,
+    "lon": -41.2860803359996
+  },
+  {
+    "nome": "IGREJA EVANGELICA ASSEMBLEIA DE DEUS DE LAGOA DO 33",
+    "area": "Religiosa",
+    "cnpj": "19382637000118",
+    "lat": -10.8449658029996,
+    "lon": -41.3783731299996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS SEM TERRA DE OUROLANDIA",
+    "area": "Comunitária",
+    "cnpj": "3272943000161",
+    "lat": -10.9748911939996,
+    "lon": -41.0877104799996
+  },
+  {
+    "nome": "ASSOCIACAO DAS/OS ASSENTADAS E ASSENTADOS DO PA SANTA LUZIA",
+    "area": "Comunitária",
+    "cnpj": "5337512000161",
+    "lat": -10.8299911269996,
+    "lon": -41.2142626249996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS PRODUTORES DA FAZENDA MUNDUBIM",
+    "area": "Rural / Agricultura",
+    "cnpj": "5828671000169",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "IGREJA EVANGELICA ASSEMBLEIA DE DEUS DE JACOBINA- MINISTERIO DE MADUREIRA",
+    "area": "Religiosa",
+    "cnpj": "7805117000272",
+    "lat": -10.9753325049996,
+    "lon": -41.0850017779996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS PRODUTORES RURAIS ENCANTO DAS EMAS DO PROJ ASSENTAMENTO LAGOA DE DENTRO I E II",
+    "area": "Rural / Agricultura",
+    "cnpj": "8192030000159",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "IGREJA BATISTA MISSIONARIA EM OUROLNDIA",
+    "area": "Religiosa",
+    "cnpj": "13274814000166",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "CONGREGACAO CRISTA NO BRASIL",
+    "area": "Comunitária",
+    "cnpj": "14301303000230",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PRODUTORES RURAIS DO DISTRITO DE LAGOA DO 33 E ADJACENCIAS DO MUNICIPIO DE OUROLANDIA BA",
+    "area": "Rural / Agricultura",
+    "cnpj": "29285600000125",
+    "lat": -10.8500676889996,
+    "lon": -41.3788556849996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PRODUTORES RURAIS DE MANOEL DOMINGOS E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "29904721000108",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS PRODUTORES RURAIS DE CASA NOVA E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "30069232000167",
+    "lat": -10.8474909679996,
+    "lon": -41.0298353119996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DE DESENVOLVIMENTO SOCIAL DO DISTRITO DE LAGOA DO 33 E ADJACENCIAS",
+    "area": "Social",
+    "cnpj": "30206491000192",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "IGREJA EVANGELICA MISSIONARIA - MINISTERIO FIRMADA EM CRISTO JESUS",
+    "area": "Religiosa",
+    "cnpj": "31532412000104",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE CATADORES DE RECICLAVEIS E ARTESAOS DE OUROLANDIA",
+    "area": "Comunitária",
+    "cnpj": "32143031000198",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE AGRICULTORES DE BAIXA DE ANASTACIO DOIS",
+    "area": "Rural / Agricultura",
+    "cnpj": "33068700000177",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS AGRICULTORES DA COMUNIDADE DE CATARINA",
+    "area": "Rural / Agricultura",
+    "cnpj": "34455760000105",
+    "lat": -10.9748911939996,
+    "lon": -41.0877104799996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS AGRICULTORES RURAL DA COMUNIDADE DE LAGOA DO 33",
+    "area": "Rural / Agricultura",
+    "cnpj": "34928831000140",
+    "lat": -10.8500676889996,
+    "lon": -41.3788556849996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS PRODUTORES RURAIS DE CORREDOR E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "41363459000137",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DO PROJETO VISAO DOS VENCEDORES",
+    "area": "Social",
+    "cnpj": "46999184000146",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DE ASSISTENCIA AOS PRODUTORES RURAIS DE CAMPO ALEGRE",
+    "area": "Rural / Agricultura",
+    "cnpj": "40149345000126",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "IGREJA PENTECOSTAL JESUS SALVA AS ALMAS PERDIDAS MINISTERIO CURA E LIBERTACAO",
+    "area": "Religiosa",
+    "cnpj": "41201920000155",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS AGRICULTORES DO DISTRITO DE LAGOA DO 33 E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "40149308000118",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO RURAL DE LAGOA DO MEIO",
+    "area": "Rural / Agricultura",
+    "cnpj": "45749308000172",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DE DESENVOLVIMENTO AGROPECUARIA DO POVOADO DE PAPAGAIO E ADJACENCIAS (ADAPPA)",
+    "area": "Comunitária",
+    "cnpj": "45229379000144",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DE AGRICULTORES LIRIOS DOS VALES DA CIDADE DE OUROLANDIA E REGIAO",
+    "area": "Rural / Agricultura",
+    "cnpj": "42154000000196",
+    "lat": -10.9745720689996,
+    "lon": -41.0912873679996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA E AGROPASTORIL DOS AGRICULTORES FAMILIARES DA COMUNIDADES DE GAMELEIRA E REGIAO",
+    "area": "Rural / Agricultura",
+    "cnpj": "45130844000195",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA E ASSISTENCIAL DE QUEIMADAS DOS MAROTOS",
+    "area": "Comunitária",
+    "cnpj": "44972562000172",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS PRODUTORES E PRODUTORAS RURAIS DE CATARINA E REGIAO",
+    "area": "Rural / Agricultura",
+    "cnpj": "45392702000104",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS PRODUTORES RURAIS DE BAIXA DO JOSE FELIX E ADJACENCIAS DO MUNICIPIO DE OUROLANDIA - BAHIA",
+    "area": "Rural / Agricultura",
+    "cnpj": "45686304000192",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS PRODUTORES E PRODUTORAS RURAIS DA LAGOA DO 33 E REGIAO",
+    "area": "Rural / Agricultura",
+    "cnpj": "45692914000107",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO FIRME E FORTE DE DESENVOLVIMENTO COMUNITARIO AGRARIO DE ALAGADICO E ADJACENCIAS DO MUNICIPIO DE OUROLANDIA - BAHIA",
+    "area": "Comunitária",
+    "cnpj": "48729849000127",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS PRODUTORES AGROPECUARIOS DO POVOADO DE AURORA",
+    "area": "Rural / Agricultura",
+    "cnpj": "49198145000138",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO AGRICOLAS E DE PRODUTORES DE SISAL. ADJACENCIAS (AAPSA)",
+    "area": "Rural / Agricultura",
+    "cnpj": "49478542000163",
+    "lat": -10.8474909679996,
+    "lon": -41.0298353119996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS PRODUTORES DE HORTALICAS DO POVOADO DE CATARINA",
+    "area": "Rural / Agricultura",
+    "cnpj": "49952789000170",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS E MEDIOS AGRICULTORES DE LAGOA DO 33 E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "51515689000128",
+    "lat": -10.9582799089996,
+    "lon": -41.0759481709996
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS PRODUTORES RURAIS DE PEDRO SERGIPANO JUNTOS SOMOS FORTE",
+    "area": "Rural / Agricultura",
+    "cnpj": "52710813000179",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "ASSOCIACAO DE PEQUENOS PRODUTORES RURAIS DA FAZENDA RIACHO FEIO",
+    "area": "Rural / Agricultura",
+    "cnpj": "53956761000188",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS PRODUTORES DA COMUNIDADE DE ARENOSOS",
+    "area": "Rural / Agricultura",
+    "cnpj": "53958622000193",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "ASSOCIACAO COMUNITARIA DOS PEQUENOS PRODUTORES RURAIS DO POVOADO DE QUEIMADAS E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "54535263000124",
+    "lat": -10.9792653,
+    "lon": -39.6247831
+  },
+  {
+    "nome": "ASSOCIACAO DOS PRODUTORES AGROECOLOGICOS ASSENTADOS (AS) E QUILOMBOLAS DO PIEMONTE DA DIAMANTINA",
+    "area": "Rural / Agricultura",
+    "cnpj": "54703965000170",
+    "lat": -10.9747565,
+    "lon": -41.0846579
+  },
+  {
+    "nome": "ASSOCIACAO DOS PRODUTORES ORGANICOS DE HORTALICAS DA COMUNIDADE DE JOAO DELMIRO",
+    "area": "Rural / Agricultura",
+    "cnpj": "55512435000107",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO DE PEQUENOS PRODUTORES RURAIS DE TIDO SERGIPANO E ADJACENCIAS",
+    "area": "Rural / Agricultura",
+    "cnpj": "57034437000163",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO RURAL DE MULHERES EMPREENDEDORAS DAS COMUNIDADES DE AURORA E CONQUISTA",
+    "area": "Rural / Agricultura",
+    "cnpj": "57661966000197",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS AGRICULTORES DO POVOADO DE ALAGADICO E ADJACENCIAS DO MUNICIPIO DE OUROLANDIA - BAHIA",
+    "area": "Rural / Agricultura",
+    "cnpj": "55008711000102",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIAO DOS PEQUENOS PRODUTORES RURAIS DA FAZENDA SANTO ANTONIO",
+    "area": "Rural / Agricultura",
+    "cnpj": "60119373000108",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS IRRIGANTES E AGRICULTORES DO DISTRITO DE LAGOA DO 33 DO MUNICIPIO DE OUROLANDIA - BAHIA",
+    "area": "Rural / Agricultura",
+    "cnpj": "63607610000178",
+    "lat": -10.851849,
+    "lon": -41.381541
+  },
+  {
+    "nome": "ASSOCIACAO DOS PEQUENOS PRODUTORES RURAIS DA FAZENDA ALTO ALEGRE DE LAGOA DO 33",
+    "area": "Rural / Agricultura",
+    "cnpj": "63901348000170",
+    "lat": -10.888815,
+    "lon": -41.171667
+  },
+  {
+    "nome": "ASSOCIACAO DOS AGRICULTORES DE ANGICAL E COMUNIDADE DO 33",
+    "area": "Rural / Agricultura",
+    "cnpj": "64156020000139",
+    "lat": -10.888815,
+    "lon": -41.171667
+  }
 ]
 </script>
 
@@ -14413,9 +15200,9 @@ const cimatecCampi = [
   },
 
   {
-    nome: "CIMATEC Park (Camaçari)",
-    lat: -12.6995,
-    lon: -38.3242
+    nome: "CIMATEC Unidade Camaçari",
+    lat: -12.69443,
+    lon: -38.29439
   },
 
   {
@@ -14438,9 +15225,14 @@ const cimatecCampi = [
   },
 
   {
-    nome: "CIMATEC Unidade Camaçari",
-    lat: -12.6990,
-    lon: -38.3250
+    nome: "CIMATEC Sertão (Coité)",
+    lat: -11.571396,
+    lon: -39.281916,
+  },
+  {
+    nome: "CIMATEC Park (Camaçari)",
+    lat: -12.70948,
+    lon: -38.17563
   }
 
 ];
