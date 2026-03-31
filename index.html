@@ -471,6 +471,14 @@ font-size: 16px;
 }
 
 
+
+#linhaTotal {
+  position: sticky;
+  top: 40px;   /* 👈 altura do thead */
+  background: #fff;
+  z-index: 2;
+}
+
 </style>
 </head>
 
@@ -781,7 +789,8 @@ font-size: 16px;
 <th>Nº Empregos (BA)</th>
 </tr>
 </thead>
-<tbody></tbody>
+<tbody>
+</tbody>
 
 </table>
 </div>
@@ -15462,6 +15471,38 @@ markers.push(marker)
 
 }
 
+/*teste de sumas*/
+function atualizarTotaisResumo(resumo){
+
+  let totalEmpresasOuro = 0;
+  let totalEmpresasBA = 0;
+  let totalEmpregosOuro = 0;
+  let totalEmpregosBA = 0;
+
+  Object.entries(resumo).forEach(([div, dados]) => {
+
+    totalEmpresasOuro += dados.empresas;
+    totalEmpregosOuro += dados.empregos;
+
+    totalEmpresasBA += dadosBahia[div]?.empresas || 0;
+    totalEmpregosBA += dadosBahia[div]?.empregos || 0;
+
+  });
+
+  const format = v => v.toLocaleString("pt-BR");
+
+  document.getElementById("totalEmpresasOurolandia").innerText = format(totalEmpresasOuro);
+  document.getElementById("totalEmpresasBA").innerText = format(totalEmpresasBA);
+  document.getElementById("totalEmpregosOurolandia").innerText = format(totalEmpregosOuro);
+  document.getElementById("totalEmpregosBA").innerText = format(totalEmpregosBA);
+}
+
+
+
+
+
+
+
 
 /*empregos += 1 */
 
@@ -15470,6 +15511,7 @@ function atualizarTabela(lista){
   let resumo = {};
 
   lista.forEach(e => {
+  
 
     let div = e.cnae.substring(0,2);
 
@@ -15487,9 +15529,17 @@ function atualizarTabela(lista){
 resumo[div].empregos += media;
 
   });
-
   let tbody = document.querySelector("#tabelaEmpresas tbody");
-  tbody.innerHTML = "";
+  tbody.innerHTML = `
+<tr id="linhaTotal">
+  <td><b>Total</b></td>
+  <td id="totalEmpresasOurolandia">0</td>
+  <td id="totalEmpresasBA">0</td>
+  <td id="totalEmpregosOurolandia">0</td>
+  <td id="totalEmpregosBA">0</td>
+</tr>
+`;
+atualizarTotaisResumo(resumo);
 
   let dadosOrdenados = Object.entries(resumo)
     .sort((a,b)=>b[1].empresas - a[1].empresas);
