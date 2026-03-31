@@ -411,6 +411,66 @@ font-size: 16px;
   color: #777; /* igual ao seu print (cinza BA) */
 }
 
+
+.header-anuario {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.header-texto {
+  flex: 1;
+}
+
+.header-texto h2 {
+  margin: 0 0 10px 0;
+}
+
+.header-texto p {
+  margin: 0;
+  color: #555;
+  line-height: 1.5;
+}
+
+.header-info {
+  text-align: right;
+  min-width: 250px;
+}
+
+.header-anuario {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.header-texto {
+  flex: 1;
+  text-align: left;
+}
+
+.header-info {
+  text-align: right;
+}
+
+
+.header-texto {
+  text-align: left !important;
+  margin-left: auto !important;
+  padding-left: 0 !important;
+  max-width: 600px;
+}
+.header-texto {
+  margin-left: -40px;
+}
+
+.header-anuario {
+  margin-left: -40px;
+}
+
+
 </style>
 </head>
 
@@ -472,6 +532,16 @@ font-size: 16px;
 </div>
 </div>
 
+
+  <!-- TEXTO ESQUERDA -->
+  <div class="header-texto">
+    <h2>Anuário de Ourolândia</h2>
+    <p>
+      Plataforma interativa com diagnósticos e informações estratégicas 
+      sobre as principais dimensões do desenvolvimento socioeconômico, 
+      ambiental e territorial de Ourolândia e da Bahia.
+    </p>
+  </div>
 
 <div id="mapa" class="section">
 
@@ -15297,8 +15367,8 @@ const cimatecCampi = [
   },
   {
     nome: "CIMATEC Park (Camaçari)",
-    lat: -12.70948,
-    lon: -38.17563
+    lat: -12.709559861235569,
+    lon: -38.17563114091169
   }
 
 ];
